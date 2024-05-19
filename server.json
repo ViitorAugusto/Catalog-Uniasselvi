@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Fone de Ouvido Over-Ear Premium",
+      "slug": "fone-de-ouvido-over-ear-premium",
+      "price": 199.9,
+      "image": "/catalog-products/Fone-Over-Ear.png",
+      "description": "O Fone de Ouvido Over-Ear Premium oferece uma qualidade de som excepcional e um conforto insuperável. Com design elegante e construção robusta, é perfeito para longas sessões de uso.",
+      "more-details": "O Fone de Ouvido Over-Ear Premium foi projetado para oferecer uma qualidade de som excepcional com graves profundos, médios claros e agudos nítidos. Suas almofadas de orelha são feitas de material macio e respirável, proporcionando conforto mesmo durante longas sessões de uso. O design elegante e a construção robusta garantem durabilidade e estilo. Ideal para uso diário, viagens ou sessões de jogos prolongadas.",
+      "featured": false
+    },
+    {
+      "id": 2,
+      "title": "Cadeira Gamer Ergonômica Ultimate",
+      "slug": "cadeira-gamer-ergonomica-ultimate",
+      "price": 499.9,
+      "image": "/catalog-products/chair.png",
+      "description": "A Cadeira Gamer Ergonômica Ultimate oferece conforto e suporte incomparáveis para longas sessões de jogo. Com design moderno e ajustes personalizados, é ideal para jogadores que buscam performance e estilo.",
+      "more-details": "A Cadeira Gamer Ergonômica Ultimate é projetada para oferecer o máximo em conforto e suporte durante longas sessões de jogo. Seu design ergonômico inclui almofadas de apoio lombar e cervical, além de braços ajustáveis e um encosto reclinável. Feita com materiais de alta qualidade, a cadeira proporciona durabilidade e resistência. O acabamento em couro sintético e a base robusta garantem estilo e estabilidade. Ideal para gamers que buscam uma cadeira que combine conforto, funcionalidade e um visual moderno.",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Teclado Mecânico Gamer RGB",
+      "slug": "teclado-mecanico-gamer-rgb",
+      "price": 299.9,
+      "image": "/catalog-products/keyboard.png",
+      "description": "O Teclado Mecânico Gamer RGB oferece precisão e velocidade para jogadores exigentes. Com iluminação RGB personalizável e switches mecânicos duráveis, proporciona uma experiência de jogo superior.",
+      "more-details": "O Teclado Mecânico Gamer RGB é ideal para jogadores que buscam alta performance. Equipado com switches mecânicos de alta durabilidade, garante respostas rápidas e precisas a cada tecla pressionada. A iluminação RGB personalizável permite que você crie a atmosfera perfeita para suas sessões de jogo, com diversas opções de cores e efeitos. O design ergonômico inclui um descanso de pulso removível, proporcionando conforto mesmo durante longas horas de uso. Com construção robusta e funcionalidades avançadas, este teclado é uma adição indispensável ao setup de qualquer gamer.",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Mouse Gamer de Alta Precisão",
+      "slug": "mouse-gamer-alta-precisao",
+      "price": 149.9,
+      "image": "/catalog-products/mouse.png",
+      "description": "O Mouse Gamer de Alta Precisão é projetado para oferecer máxima precisão e conforto. Com sensor óptico avançado, iluminação RGB e botões programáveis, é ideal para jogadores que buscam desempenho superior.",
+      "more-details": "O Mouse Gamer de Alta Precisão é a escolha perfeita para jogadores que buscam desempenho superior. Equipado com um sensor óptico avançado, proporciona rastreamento preciso e rápido, essencial para jogos competitivos. A iluminação RGB personalizável permite ajustar o visual do mouse de acordo com suas preferências, criando a atmosfera ideal para suas sessões de jogo. Os botões programáveis oferecem flexibilidade adicional, permitindo personalizar suas funções para melhor desempenho. O design ergonômico e os materiais de alta qualidade garantem conforto mesmo durante longas horas de uso. Este mouse é uma adição indispensável para qualquer setup gamer.",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Mesa Gamer Completa",
+      "slug": "mesa-gamer-completa",
+      "price": 9999.9,
+      "image": "/catalog-products/table.png",
+      "description": "A Mesa Gamer Completa é a escolha ideal para jogadores que buscam um setup completo e organizado. Com amplo espaço, design ergonômico e acabamento premium, proporciona conforto e funcionalidade durante suas sessões de jogo.",
+      "more-details": "A Mesa Gamer Completa é projetada para proporcionar o máximo de conforto e organização aos jogadores. Com um amplo espaço para acomodar todos os seus periféricos e acessórios, esta mesa é perfeita para setups complexos. O design ergonômico ajuda a manter uma postura saudável durante longas sessões de jogo, enquanto o acabamento premium oferece durabilidade e um visual sofisticado. Inclui suporte para monitor, teclado, mouse e CPU, além de espaço adicional para outros itens essenciais. Ideal para quem busca um ambiente de jogo profissional e bem organizado.",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Monitor Gamer UltraWide 4K",
+      "slug": "monitor-gamer-ultrawide-4k",
+      "price": 1299.9,
+      "image": "/catalog-products/monitor.png",
+      "description": "O Monitor Gamer UltraWide 4K oferece uma experiência visual imersiva com resolução 4K e uma ampla gama de cores. Ideal para gamers e criadores de conteúdo, combina qualidade de imagem superior com design elegante.",
+      "more-details": "O Monitor Gamer UltraWide 4K é perfeito para jogadores e criadores de conteúdo que buscam uma qualidade de imagem superior. Com uma resolução de 4K, oferece detalhes nítidos e uma ampla gama de cores vibrantes que dão vida a qualquer cena. A tela ultra-wide proporciona um campo de visão expandido, ideal para jogos imersivos e multitarefa eficiente. Seu design elegante e bordas finas complementam qualquer setup, enquanto os recursos avançados, como taxa de atualização rápida e tecnologias de redução de cansaço visual, garantem uma experiência confortável mesmo durante longas sessões. Este monitor é uma escolha premium para quem busca performance e estilo.",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Gabinete Gamer RGB Mid Tower",
+      "slug": "gabinete-gamer-rgb-mid-tower",
+      "price": 399.9,
+      "image": "/catalog-products/gabinete.png",
+      "description": "O Gabinete Gamer RGB Mid Tower oferece estilo e funcionalidade com iluminação RGB e painel de vidro temperado",
+      "more-details": "O Gabinete Gamer RGB Mid Tower é projetado para jogadores que buscam um equilíbrio perfeito entre estilo e funcionalidade. Com um amplo espaço interno, este gabinete acomoda facilmente componentes de alta performance, garantindo excelente fluxo de ar e refrigeração eficiente. A iluminação RGB personalizável permite que você crie o visual perfeito para o seu setup, enquanto o painel lateral de vidro temperado oferece uma visão clara dos componentes internos, destacando a estética do seu PC. Além disso, conta com várias opções de gerenciamento de cabos, garantindo um interior limpo e organizado. Este gabinete é uma escolha premium para qualquer setup gamer.",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "Placa-Mãe Gamer RGB ATX",
+      "slug": "placa-mae-gamer-rgb-atx",
+      "price": 549.9,
+      "image": "/catalog-products/placamae.png",
+      "description": "A Placa-Mãe Gamer RGB ATX oferece suporte para os mais recentes processadores e componentes de alta performance. Com iluminação RGB personalizável e recursos avançados, é ideal para montar um setup poderoso e estiloso.",
+      "more-details": "A Placa-Mãe Gamer RGB ATX é a escolha perfeita para montar um setup poderoso e estiloso. Compatível com os mais recentes processadores, esta placa-mãe suporta componentes de alta performance, garantindo uma experiência de jogo suave e eficiente. A iluminação RGB personalizável permite que você ajuste o visual da sua máquina conforme suas preferências, adicionando um toque de estilo ao seu setup. Equipada com múltiplos slots de expansão, portas USB de alta velocidade e suporte para armazenamento NVMe, esta placa-mãe oferece flexibilidade e desempenho superior. Recursos avançados como overclocking e gerenciamento térmico garantem que seu sistema funcione de maneira otimizada mesmo sob carga intensa.",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "Placa de Vídeo Gamer RTX 3080 RGB",
+      "slug": "placa-de-video-gamer-rtx-3080-rgb",
+      "price": 2999.9,
+      "image": "/catalog-products/rtx.png",
+      "description": "A Placa de Vídeo Gamer RTX 3080 RGB oferece desempenho extremo para os jogos mais exigentes. Com iluminação RGB personalizável e tecnologia de rastreamento de raios em tempo real, proporciona gráficos incríveis e uma experiência de jogo imersiva.",
+      "more-details": "A Placa de Vídeo Gamer RTX 3080 RGB é projetada para proporcionar o máximo desempenho em jogos e aplicações gráficas. Com a mais recente tecnologia de rastreamento de raios em tempo real (ray tracing), oferece gráficos hiper-realistas e imersivos. A iluminação RGB personalizável permite ajustar o visual da placa conforme suas preferências, adicionando um toque de estilo ao seu setup. Equipado com uma potente arquitetura de GPU, esta placa de vídeo oferece altas taxas de quadros e desempenho suave mesmo nos jogos mais exigentes. Ideal para gamers entusiastas e criadores de conteúdo que buscam a melhor experiência visual possível.",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Fonte de Alimentação Gamer 750W Modular",
+      "slug": "fonte-de-alimentacao-gamer-750w-modular",
+      "price": 349.9,
+      "image": "/catalog-products/fonte.png",
+      "description": "A Fonte de Alimentação Gamer 750W Modular oferece potência estável e eficiência energética para setups de alta performance. Com design modular e ventilador silencioso, garante uma operação confiável e organizada.",
+      "more-details": "A Fonte de Alimentação Gamer 750W Modular é projetada para oferecer potência estável e confiável para sistemas de alta performance. Com uma capacidade de 750W, suporta componentes exigentes, garantindo operação eficiente e segura. O design modular permite uma gestão de cabos mais organizada e eficiente, reduzindo a desordem dentro do gabinete e melhorando o fluxo de ar. O ventilador silencioso ajusta automaticamente sua velocidade conforme a carga, proporcionando um funcionamento silencioso e eficiente. Com certificação de eficiência energética, esta fonte de alimentação ajuda a reduzir o consumo de energia, tornando-a uma escolha sustentável para setups gamers.",
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "Memória RAM Gamer 16GB RGB DDR4",
+      "slug": "memoria-ram-gamer-16gb-rgb-ddr4",
+      "price": 499.9,
+      "image": "/catalog-products/memoria.png",
+      "description": "A Memória RAM Gamer 16GB RGB DDR4 oferece alta velocidade e desempenho para jogos e multitarefa. Com iluminação RGB personalizável e design robusto, é ideal para setups gamers que buscam eficiência e estilo.",
+      "more-details": "A Memória RAM Gamer 16GB RGB DDR4 é projetada para oferecer alto desempenho e estabilidade para jogos e multitarefa. Com uma capacidade de 16GB e alta frequência, garante tempos de resposta rápidos e operação suave mesmo nos jogos e aplicações mais exigentes. A iluminação RGB personalizável permite que você adicione um toque de estilo ao seu setup, sincronizando as cores com outros componentes RGB. O design robusto e a construção de alta qualidade garantem durabilidade e confiabilidade. Esta memória é ideal para gamers que buscam uma combinação de desempenho e estética.",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "Drone Profissional 4K voo inteligentes.",
+      "slug": "drone-profissional-4k",
+      "price": 1999.9,
+      "image": "/catalog-products/drone.png",
+      "description": "O Drone Profissional 4K oferece capturas aéreas de alta qualidade com estabilidade e precisão. Equipado com câmera 4K, modos de voo inteligentes e design compacto, é ideal para fotografia e videografia profissional.",
+      "more-details": "O Drone Profissional 4K é projetado para fotógrafos e videógrafos que buscam qualidade e precisão em suas capturas aéreas. Equipado com uma câmera 4K de alta resolução, permite gravar vídeos e tirar fotos com detalhes incríveis. Os modos de voo inteligentes, como follow me, waypoint e orbit, facilitam a captura de cenas complexas com estabilidade e precisão. O design compacto e dobrável torna este drone fácil de transportar e armazenar, ideal para profissionais em movimento. Além disso, sua bateria de longa duração garante mais tempo de voo, permitindo que você capture todos os momentos importantes sem interrupções.",
+      "featured": false
+    }
+  ]
+}
