@@ -7,7 +7,7 @@ interface CatalogInfoProductsProps {
   description: string;
   price: number;
   img: string;
-  id: number;
+  slug: string;
 }
 
 export const CatalogInfoProducts = ({
@@ -15,11 +15,11 @@ export const CatalogInfoProducts = ({
   img,
   price,
   title,
-  id
+  slug,
 }: CatalogInfoProductsProps) => {
   return (
     <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-lg">
-      <Link href={`/products/${id}`}>
+      <Link href={`/products/${slug}`}>
         <Image
           alt={title}
           className="w-full h-[200px] object-cover"
