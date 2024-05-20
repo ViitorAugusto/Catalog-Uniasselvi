@@ -1,3 +1,5 @@
+import { getProductById } from "@/services/getProductById";
+
 interface Props {
   params: {
     id: string;
@@ -5,7 +7,9 @@ interface Props {
   };
 }
 
-export default function DetailsProducts({ params }: Props) {
+export default async function DetailsProducts({ params }: Props) {
+  const detailsProducts = await getProductById(Number(params.id));
+  console.log(detailsProducts);
   return (
     <div>
       <h1>Name {params.id}</h1>
