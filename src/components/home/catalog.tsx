@@ -23,7 +23,7 @@ export default async function Catalog() {
             title={product.title}
             price={product.price}
             img={product.image}
-            slug={product.slug}
+            id={product.id}
           />
         ))}
       </div>
