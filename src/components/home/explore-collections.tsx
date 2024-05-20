@@ -23,7 +23,7 @@ export default function ExploreCollections() {
                 Women
               </div>
               <div className="line-clamp-2 text-sm leading-snug text-gray-500 dark:text-gray-400">
-                Discover the latest trends in womens fashion.
+                Discover the latest trends in women&apos;s fashion.
               </div>
             </Link>
             <Link
@@ -34,7 +34,7 @@ export default function ExploreCollections() {
                 Men
               </div>
               <div className="line-clamp-2 text-sm leading-snug text-gray-500 dark:text-gray-400">
-                Explore our selection of mens fashion essentials.
+                Explore our selection of men&apos;s fashion essentials.
               </div>
             </Link>
             <Link
