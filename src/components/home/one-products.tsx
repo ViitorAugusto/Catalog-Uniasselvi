@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function OneProducts() {
   return (
     <section className="py-12 md:py-20">
       <div className="container px-4 md:px-6 grid md:grid-cols-2 gap-8 items-start">
         <div>
-          <img
+          <Image
             alt="Product Details"
             className="rounded-lg object-cover"
             height={600}

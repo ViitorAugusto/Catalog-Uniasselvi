@@ -8,11 +8,7 @@ const dm_sans = DM_Sans({
   display: "swap",
   variable: "--font-dm_sans",
 });
-const rethink_sans = Rethink_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-rethink_sans",
-});
+
 
 export default function RootLayout({
   children,
@@ -22,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning={true}>
       <body
-        className={dm_sans.variable + " " + rethink_sans.variable}
+        className={dm_sans.variable}
         suppressHydrationWarning={true}
       >
         <ThemeProvider

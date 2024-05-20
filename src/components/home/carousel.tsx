@@ -11,6 +11,7 @@ import {
   CarouselNext,
   Carousel,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 export default function CarouselHome() {
   return (
@@ -29,7 +30,7 @@ export default function CarouselHome() {
             <CarouselContent>
               <CarouselItem>
                 <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <img
+                  <Image
                     alt="Product 1"
                     className="aspect-video w-full rounded-lg object-cover"
                     height={300}
@@ -50,7 +51,7 @@ export default function CarouselHome() {
               </CarouselItem>
               <CarouselItem>
                 <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <img
+                  <Image
                     alt="Product 2"
                     className="aspect-video w-full rounded-lg object-cover"
                     height={300}
@@ -69,7 +70,7 @@ export default function CarouselHome() {
               </CarouselItem>
               <CarouselItem>
                 <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <img
+                  <Image
                     alt="Product 3"
                     className="aspect-video w-full rounded-lg object-cover"
                     height={300}
@@ -90,7 +91,7 @@ export default function CarouselHome() {
               </CarouselItem>
               <CarouselItem>
                 <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <img
+                  <Image
                     alt="Product 4"
                     className="aspect-video w-full rounded-lg object-cover"
                     height={300}

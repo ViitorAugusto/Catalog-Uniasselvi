@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Banner() {
@@ -34,7 +35,7 @@ export default function Banner() {
             </div>
           </div>
           <div className="grid gap-4">
-            <img
+            <Image
               alt="Gaming Peripherals"
               className="aspect-[7/5] object-cover rounded-lg overflow-hidden"
               height={500}
@@ -42,14 +43,14 @@ export default function Banner() {
               width={700}
             />
             <div className="grid grid-cols-2 gap-4">
-              <img
+              <Image
                 alt="Gaming Mouse"
                 className="aspect-[7/5] object-cover rounded-lg overflow-hidden"
                 height={240}
                 src="/placeholder.svg"
                 width={340}
               />
-              <img
+              <Image
                 alt="Gaming Keyboard"
                 className="aspect-[7/5] object-cover rounded-lg overflow-hidden"
                 height={240}

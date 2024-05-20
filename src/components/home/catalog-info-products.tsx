@@ -7,6 +7,7 @@ interface CatalogInfoProductsProps {
   description: string;
   price: number;
   img: string;
+  id: number;
 }
 
 export const CatalogInfoProducts = ({
@@ -14,11 +15,11 @@ export const CatalogInfoProducts = ({
   img,
   price,
   title,
-  
+  id
 }: CatalogInfoProductsProps) => {
   return (
-      <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-lg">
-      
+    <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-lg">
+      <Link href={`/products/${id}`}>
         <Image
           alt={title}
           className="w-full h-[200px] object-cover"
@@ -49,6 +50,7 @@ export const CatalogInfoProducts = ({
             <Button size="sm">Add to Cart</Button>
           </div>
         </div>
-      </div>
+      </Link>
+    </div>
   );
 };
