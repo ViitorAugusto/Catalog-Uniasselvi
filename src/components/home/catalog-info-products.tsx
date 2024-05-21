@@ -18,8 +18,10 @@ export const CatalogInfoProducts = ({
   id,
 }: CatalogInfoProductsProps) => {
   return (
-    <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-lg">
-      <Link href={`/products/${id}`}>
+    <div className="bg-white dark:bg-gray-950 rounded-lg overflow-hidden shadow-lg
+      transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105
+    ">
+      <Link href={`/products/${id}`} >
         <Image
           alt={title}
           className="w-full h-[200px] object-cover"

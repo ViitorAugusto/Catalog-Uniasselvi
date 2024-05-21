@@ -4,6 +4,8 @@ export interface Product {
   slug: string;
   price: number;
   image: string;
+  images: string[];
   description: string;
+  moreDetails: string;
   featured: boolean;
 }
