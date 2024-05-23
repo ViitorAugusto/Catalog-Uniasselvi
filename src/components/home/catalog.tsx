@@ -1,7 +1,6 @@
 import { getAllProducts } from "@/services/product";
 import { CatalogInfoProducts } from "./catalog-info-products";
 
-
 export default async function Catalog() {
   const products = await getAllProducts();
   return (
@@ -26,10 +25,7 @@ export default async function Catalog() {
             id={product.id}
           />
         ))}
-
-        
       </div>
-      mostrar mais
     </section>
   );
 }
