@@ -10,7 +10,9 @@ import {
   Select,
 } from "@/components/ui/select";
 import Image from "next/image";
-
+import { HeartFilledIcon } from "@radix-ui/react-icons";
+import { FaRegHeart } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
 interface DetailsProducstsProps {
   title: string;
   description: string;
@@ -28,7 +30,12 @@ export default function DetailsProducsts({
   img,
   images,
 }: DetailsProducstsProps) {
-     const placeholder = "/placeholder.svg";
+  const defaultImage = "/placeholder.svg";
+  const pixDiscount = 25; // 19% de desconto
+  const installmentDiscount = 15; // 15% de desconto
+  const originalPrice = price / (1 - pixDiscount / 100);
+  const installmentPrice = price / (1 - installmentDiscount / 100);
+  
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
@@ -53,7 +60,7 @@ export default function DetailsProducsts({
                   alt="Producto"
                   className="object-cover w-full rounded-lg"
                   height={200}
-                  src={images[0] || placeholder}
+                  src={images[0] || defaultImage}
                   style={{
                     aspectRatio: "200/200",
                     objectFit: "cover",
@@ -66,7 +73,7 @@ export default function DetailsProducsts({
                   alt="Producto"
                   className="object-cover w-full rounded-lg"
                   height={200}
-                  src={images[1] || placeholder}
+                  src={images[1] || defaultImage}
                   style={{
                     aspectRatio: "200/200",
                     objectFit: "cover",
@@ -79,7 +86,7 @@ export default function DetailsProducsts({
                   alt="Producto"
                   className="object-cover w-full rounded-lg"
                   height={200}
-                  src={images[2] || placeholder}
+                  src={images[2] || defaultImage}
                   style={{
                     aspectRatio: "200/200",
                     objectFit: "cover",
@@ -102,7 +109,7 @@ export default function DetailsProducsts({
               </p>
 
               <div className="mt-8 grid gap-4">
-                <div className="grid gap-2">
+                {/* <div className="grid gap-2">
                   <Label className="text-base" htmlFor="color">
                     Color
                   </Label>
@@ -133,8 +140,8 @@ export default function DetailsProducsts({
                       Rosa
                     </Label>
                   </RadioGroup>
-                </div>
-                <div className="grid gap-2">
+                </div> */}
+                {/* <div className="grid gap-2">
                   <Label className="text-base" htmlFor="talla">
                     Talla
                   </Label>
@@ -176,10 +183,10 @@ export default function DetailsProducsts({
                       XL
                     </Label>
                   </RadioGroup>
-                </div>
+                </div> */}
                 <div className="grid gap-2">
                   <Label className="text-base" htmlFor="cantidad">
-                    Cantidad
+                    Quantidade
                   </Label>
                   <Select defaultValue="1">
                     <SelectTrigger className="w-24">
@@ -195,23 +202,46 @@ export default function DetailsProducsts({
                   </Select>
                 </div>
                 <div className="flex flex-col gap-2 lg:flex-row">
-                  <Button size="lg">Agregar al Carrito</Button>
+                  <Button size="lg">
+                    Adicionar ao carrinho <FiShoppingCart className="ml-2" />
+                  </Button>
                   <Button size="lg" variant="outline">
-                    AQUI TEM UM ICON Agregar a Favoritos
+                    Salvar como favoritos <FaRegHeart className="ml-2" />
                   </Button>
                 </div>
-                <div className="text-3xl font-bold ">
-                  {price.toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                  <span className="text-sm text-gray-500 dark:text-gray-400 ml-4">
-                    Em até 12x s/ juros de{" "}
-                    {(price / 12).toLocaleString("pt-BR", {
+                <div>
+                  <div className="text-3xl font-bold">
+                    {price.toLocaleString("pt-BR", {
                       style: "currency",
                       currency: "BRL",
-                    })}
-                  </span>
+                    })}{" "}
+                    <span className="line-through text-gray-500 dark:text-gray-400 text-lg">
+                      {originalPrice.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </span>{" "}
+                    <span className="text-emerald-700 text-base">
+                      {pixDiscount}% off
+                    </span>
+                  </div>
+                  <div className="text-base text-gray-500 dark:text-gray-400">
+                    ou{" "}
+                    {installmentPrice.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}{" "}
+                    em até 12x s/ juros de{" "}
+                    <span className=" text-gray-500 dark:text-gray-400 text-lg font-bold">
+                      {(installmentPrice / 12).toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}{" "}
+                    </span>
+                    <span className="text-emerald-700 text-base font-bold">
+                      {installmentDiscount}% off
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

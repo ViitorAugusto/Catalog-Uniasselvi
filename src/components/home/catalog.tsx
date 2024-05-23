@@ -26,7 +26,10 @@ export default async function Catalog() {
             id={product.id}
           />
         ))}
+
+        
       </div>
+      mostrar mais
     </section>
   );
 }
