@@ -8,3 +8,8 @@ export const getAllProducts = async (): Promise<Product[]> => {
   });
   return await response.json();
 };
+
+export const getProductPage = async (page = 1, limit = 8): Promise<Product> => {
+  const response = await fetch(`/api/products?_page=${page}&_limit=${limit}`);
+  return await response.json();
+};

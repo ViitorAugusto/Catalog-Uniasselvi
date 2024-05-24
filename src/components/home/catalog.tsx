@@ -1,8 +1,9 @@
-import { getAllProducts } from "@/services/product";
+import { getAllProducts, getProductPage } from "@/services/product";
 import { CatalogInfoProducts } from "./catalog-info-products";
 
 export default async function Catalog() {
   const products = await getAllProducts();
+  const featuredProducts = products.filter(product => !product.featured);
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
       <div className="text-center mb-8">
@@ -15,7 +16,8 @@ export default async function Catalog() {
       </div>
 
       <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {products.map(product => (
+        {products.length === 0 && <p>Nenhum produto encontrado.</p>}
+        {featuredProducts.map(product => (
           <CatalogInfoProducts
             key={product.id}
             description={product.description}

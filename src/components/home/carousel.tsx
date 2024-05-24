@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/OWHs8YS4ciS
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Button } from "@/components/ui/button";
 import {
   CarouselItem,
@@ -11,103 +6,51 @@ import {
   CarouselNext,
   Carousel,
 } from "@/components/ui/carousel";
+import { getAllProducts } from "@/services/product";
 import Image from "next/image";
 
-export default function CarouselHome() {
+export default async function CarouselHome() {
+  const products = await getAllProducts();
+  const featuredProducts = products.filter(product => product.featured);
   return (
     <section className="container mx-auto py-12 md:py-16 lg:py-20">
       <div className="flex flex-col items-center justify-center gap-8 md:gap-12">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Our Product Catalog
+            Nosso Catálogo de Produtos
           </h2>
           <p className="mt-4 text-gray-500 dark:text-gray-400 md:text-lg">
-            Discover our latest collection of high-quality products.
+            Descubra a nossa mais recente coleção de produtos de alta qualidade.
           </p>
         </div>
         <div className="w-full max-w-6xl">
           <Carousel>
             <CarouselContent>
-              <CarouselItem>
-                <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <Image
-                    alt="Product 1"
-                    className="aspect-video w-full rounded-lg object-cover"
-                    height={300}
-                    src="/placeholder.svg"
-                    width={400}
-                  />
-                  <div className="flex flex-col items-center gap-2">
-                    <h3 className="text-lg font-semibold">
-                      Stylish Sunglasses
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Protect your eyes in style.
-                    </p>
-                    <p className="text-2xl font-bold">$49.99</p>
-                    <Button size="sm">Add to Cart</Button>
+              {featuredProducts.map(product => (
+                <CarouselItem key={product.id}>
+                  <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
+                    <Image
+                      alt={product.title}
+                      className="aspect-video w-full rounded-lg object-cover"
+                      height={1000}
+                      src={product.image}
+                      width={1000}
+                      quality={100}
+                      priority
+                    />
+                    <div className="flex flex-col items-center gap-2">
+                      <h3 className="text-lg font-semibold">{product.title}</h3>
+                      <p className="text-2xl font-bold">
+                        {product.price.toLocaleString("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                        })}
+                      </p>
+                      <Button size="sm">Add to Cart</Button>
+                    </div>
                   </div>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <Image
-                    alt="Product 2"
-                    className="aspect-video w-full rounded-lg object-cover"
-                    height={300}
-                    src="/placeholder.svg"
-                    width={400}
-                  />
-                  <div className="flex flex-col items-center gap-2">
-                    <h3 className="text-lg font-semibold">Leather Backpack</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Durable and stylish.
-                    </p>
-                    <p className="text-2xl font-bold">$79.99</p>
-                    <Button size="sm">Add to Cart</Button>
-                  </div>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <Image
-                    alt="Product 3"
-                    className="aspect-video w-full rounded-lg object-cover"
-                    height={300}
-                    src="/placeholder.svg"
-                    width={400}
-                  />
-                  <div className="flex flex-col items-center gap-2">
-                    <h3 className="text-lg font-semibold">
-                      Wireless Headphones
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Immersive sound experience.
-                    </p>
-                    <p className="text-2xl font-bold">$99.99</p>
-                    <Button size="sm">Add to Cart</Button>
-                  </div>
-                </div>
-              </CarouselItem>
-              <CarouselItem>
-                <div className="flex flex-col items-center gap-4 rounded-lg bg-white p-6 shadow-md dark:bg-gray-950">
-                  <Image
-                    alt="Product 4"
-                    className="aspect-video w-full rounded-lg object-cover"
-                    height={300}
-                    src="/placeholder.svg"
-                    width={400}
-                  />
-                  <div className="flex flex-col items-center gap-2">
-                    <h3 className="text-lg font-semibold">Minimalist Watch</h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Timeless design.
-                    </p>
-                    <p className="text-2xl font-bold">$59.99</p>
-                    <Button size="sm">Add to Cart</Button>
-                  </div>
-                </div>
-              </CarouselItem>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />

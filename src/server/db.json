@@ -135,64 +135,6 @@
       "description": "O Drone Profissional 4K oferece capturas aéreas de alta qualidade com estabilidade e precisão. Equipado com câmera 4K, modos de voo inteligentes e design compacto, é ideal para fotografia e videografia profissional.",
       "moreDetails": "O Drone Profissional 4K é projetado para fotógrafos e videógrafos que buscam qualidade e precisão em suas capturas aéreas. Equipado com uma câmera 4K de alta resolução, permite gravar vídeos e tirar fotos com detalhes incríveis. Os modos de voo inteligentes, como follow me, waypoint e orbit, facilitam a captura de cenas complexas com estabilidade e precisão. O design compacto e dobrável torna este drone fácil de transportar e armazenar, ideal para profissionais em movimento. Além disso, sua bateria de longa duração garante mais tempo de voo, permitindo que você capture todos os momentos importantes sem interrupções.",
       "featured": false
-    },
-    {
-      "id": 13,
-      "title": "Smartwatch Fitness Tracker",
-      "slug": "smartwatch-fitness-tracker",
-      "price": 299.9,
-      "image": "/catalog-products/smartwatchFitnessTracker.png",
-      "images": [],
-      "description": "O Smartwatch Fitness Tracker é o companheiro ideal para suas atividades físicas. Com monitoramento de saúde avançado, GPS integrado e design resistente à água, é perfeito para quem busca um estilo de vida ativo e saudável.",
-      "moreDetails": "O Smartwatch Fitness Tracker é projetado para acompanhar seu estilo de vida ativo e saudável. Com monitoramento avançado de saúde, incluindo frequência cardíaca, oxigênio no sangue e qualidade do sono, ajuda a manter o controle de sua condição física e bem-estar. O GPS integrado permite rastrear suas atividades ao ar livre com precisão, enquanto o design resistente à água garante que você possa usá-lo em qualquer condição climática. Além disso, o smartwatch oferece notificações inteligentes, controle de música e outras funcionalidades úteis para o seu dia a dia. Ideal para quem busca um companheiro confiável e funcional para suas atividades diárias.",
-      "featured": false
-    },
-    {
-      "id": 14,
-      "title": "Câmera de Ação 4K à prova d'água",
-      "slug": "camera-de-acao-4k",
-      "price": 750.0,
-      "image": "/highlight/camera.png",
-      "images": [],
-      "description": "A Câmera de Ação 4K à prova d'água é perfeita para capturar seus momentos de aventura. Com resolução 4K, design compacto e resistência à água, é ideal para esportes radicais, viagens e atividades ao ar livre.",
-      "moreDetails": "A Câmera de Ação 4K à prova d'água é projetada para capturar seus momentos de aventura com qualidade e praticidade. Com resolução 4K, oferece vídeos e fotos de alta definição que capturam todos os detalhes da sua experiência. O design compacto e resistente à água permite que você a leve para qualquer lugar, seja em esportes radicais, viagens ou atividades ao ar livre. Além disso, a câmera oferece recursos avançados, como estabilização de imagem, controle por voz e conectividade Wi-Fi, para facilitar o uso e compartilhamento de suas imagens. Ideal para quem busca uma câmera versátil e de alta qualidade para registrar seus momentos mais emocionantes.",
-      "featured": true
-    },
-    {
-      "id": 15,
-      "title": "playstation 6",
-      "slug": "console-de-jogo",
-      "price": 1999.9,
-      "image": "/highlight/console.png",
-      "images": [],
-      "description": "O Console de Jogo é a escolha perfeita para os amantes de jogos que buscam uma experiência imersiva e de alta qualidade. Com gráficos de última geração, controle ergonômico e uma vasta biblioteca de jogos, oferece horas de entretenimento para toda a família.",
-      "moreDetails": "O Console de Jogo é projetado para proporcionar a melhor experiência em jogos, combinando desempenho poderoso e design elegante. Equipado com processador de última geração e gráficos avançados, garante imagens nítidas e gameplay fluido. O controle ergonômico é confortável para longas sessões de jogo, e a biblioteca de jogos é vasta, com títulos para todas as idades e gostos. Além disso, o console oferece funcionalidades adicionais como reprodução de mídia, acesso a aplicativos de streaming e suporte a multiplayer online, tornando-o um centro de entretenimento completo. Ideal para quem busca diversão e tecnologia de ponta em um único dispositivo.",
-      "featured": true
-    },
-    {
-      "id": 16,
-      "title": "Monitor Curvo Ultra-Wide 49 polegadas",
-      "slug": "monitor-curvo-49-polegadas",
-      "price": 3999.9,
-      "image": "/highlight/monitor1.png",
-      "images": [
-        "/catalog-products/monitoroffer-1",
-        "/catalog-products/monitoroffer-2"
-      ],
-      "description": "O Monitor Curvo Ultra-Wide de 49 polegadas proporciona uma experiência imersiva com sua tela curva e ampla. Ideal para multitarefas e jogos, oferece qualidade de imagem superior e conforto visual.",
-      "moreDetails": "O Monitor Curvo Ultra-Wide de 49 polegadas é perfeito para profissionais e gamers que buscam uma experiência visual superior. Com sua tela curva e ultra-wide, proporciona uma visão panorâmica e imersiva. A alta resolução e as cores vibrantes garantem uma qualidade de imagem excepcional. Este monitor é ideal para multitarefas, permitindo que você trabalhe com várias janelas abertas ao mesmo tempo, sem perder a produtividade. Para os gamers, a curvatura da tela e a taxa de atualização rápida proporcionam uma experiência de jogo mais envolvente e fluida. Com design moderno e elegante, este monitor se encaixa perfeitamente em qualquer setup.",
-      "featured": true
-    },
-    {
-      "id": 17,
-      "title": "Smart TV 4K Ultra HD",
-      "slug": "smart-tv-4k-ultra-hd",
-      "price": 3499.9,
-      "image": "/highlight/tv.png",
-      "images": [],
-      "description": "A Smart TV 4K Ultra HD oferece uma experiência de visualização incrível com resolução 4K, cores vibrantes e som de alta qualidade. Com acesso a aplicativos de streaming e conectividade Wi-Fi, é perfeita para assistir seus programas e filmes favoritos.",
-      "moreDetails": "A Smart TV 4K Ultra HD é a escolha ideal para quem busca qualidade de imagem excepcional e funcionalidades inteligentes. Com resolução 4K, cada detalhe é exibido com clareza impressionante, enquanto as cores vibrantes proporcionam uma experiência visual imersiva. O som de alta qualidade complementa a imagem, criando um ambiente de cinema em sua casa. A TV vem com acesso integrado a diversos aplicativos de streaming, permitindo que você assista a seus programas e filmes favoritos diretamente da tela da TV. A conectividade Wi-Fi garante uma experiência de navegação rápida e fácil. Além disso, o design elegante e moderno combina perfeitamente com qualquer ambiente.",
-      "featured": true
     }
   ]
 }

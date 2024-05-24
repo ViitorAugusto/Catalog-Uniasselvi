@@ -9,34 +9,38 @@ export default function OneProducts() {
           <Image
             alt="Product Details"
             className="rounded-lg object-cover"
-            height={600}
-            src="/placeholder.svg"
+            height={1000}
+            src="/celularg.png"
             style={{
               aspectRatio: "600/600",
               objectFit: "cover",
             }}
-            width={600}
+            width={1000}
+            quality={100}
+            priority
           />
         </div>
         <div className="space-y-4">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Wireless Headphones
+            Smartphone Galaxy S40 Ultra 5G
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-lg">
-            Experience high-quality sound and noise cancellation with our
-            premium wireless headphones.
+          <p>
+            Experimente uma tela de alta resolução e recursos avançados com
+            nosso smartphone moderno.
           </p>
           <div className="flex items-center gap-4">
-            <span className="text-3xl font-bold">$99.99</span>
+            <span className="text-3xl font-bold">R$: 3.999,99</span>
             <Button size="lg">Add to Cart</Button>
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold">Key Features:</h3>
+            <h3 className="text-xl font-semibold">
+              Características Principais
+            </h3>
             <ul className="list-disc pl-6 space-y-1 text-gray-500 dark:text-gray-400">
-              <li>Bluetooth 5.0 connectivity</li>
-              <li>Up to 30 hours of battery life</li>
-              <li>Noise cancellation technology</li>
-              <li>Comfortable and adjustable design</li>
+              <li>Conectividade Bluetooth 5.0</li>
+              <li>Até 30 horas de duração da bateria</li>
+              <li>Tecnologia de cancelamento de ruído</li>
+              <li>Design confortável e ajustável</li>
             </ul>
           </div>
         </div>
