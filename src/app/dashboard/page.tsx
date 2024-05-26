@@ -1,4 +1,4 @@
-
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,8 +27,19 @@ import {
 } from "@/components/ui/table";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { FormCreateProducts } from "./_components/form-create-producuts";
+import { useState } from "react";
 
 export default function Dashboard() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <>
       <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
@@ -138,7 +149,7 @@ export default function Dashboard() {
           <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
             <div className="flex items-center">
               <h1 className="font-semibold text-lg md:text-2xl">Products</h1>
-              <Button className="ml-auto" size="sm">
+              <Button className="ml-auto" size="sm" onClick={handleOpenModal}>
                 Add product
               </Button>
             </div>
@@ -244,47 +255,8 @@ export default function Dashboard() {
             </div>
           </main>
         </div>
+        {isModalOpen && <FormCreateProducts onClose={handleCloseModal} />}
       </div>
-      {/* <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-        <div className="bg-white dark:bg-gray-950 rounded-lg shadow-lg w-full max-w-md p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold">Add New Product</h2>
-            <Button className="ml-auto" size="icon" variant="ghost">
-              <XIcon className="h-5 w-5" />
-              <span className="sr-only">Close</span>
-            </Button>
-          </div>
-          <form className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="image">Product Image</Label>
-              <Input id="image" type="file" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="name">Product Name</Label>
-              <Input id="name" placeholder="Enter product name" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                placeholder="Enter product description"
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="price">Price</Label>
-              <Input
-                id="price"
-                placeholder="Enter product price"
-                type="number"
-              />
-            </div>
-            <div className="flex justify-end gap-2">
-              <Button variant="outline">Cancel</Button>
-              <Button>Save</Button>
-            </div>
-          </form>
-        </div>
-      </div> */}
     </>
   );
 }
@@ -457,4 +429,3 @@ function UsersIcon(props: any) {
     </svg>
   );
 }
-
