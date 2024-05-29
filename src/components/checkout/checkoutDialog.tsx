@@ -8,8 +8,9 @@ import { useState } from "react";
 import { StepUser } from "./step-user";
 import { StepAddress } from "./step-address";
 import { StepFinish } from "./step-finish";
+import { CheckoutSteps } from "@/types/checkout-steps";
 
-type steps = "user" | "address" | "finish";
+
 
 type CheckoutDialogProps = {
   open: boolean;
@@ -17,7 +18,7 @@ type CheckoutDialogProps = {
 };
 
 export const CheckoutDialog = ({ onOpenChange, open }: CheckoutDialogProps) => {
-  const [step, setStep] = useState<steps>("user");
+  const [step, setStep] = useState<CheckoutSteps>("user");
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent>

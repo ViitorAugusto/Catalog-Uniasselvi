@@ -1,10 +1,11 @@
+import { useCheckoutStore } from "@/context/checkout-store";
+
 export const StepFinish = () => {
+  const { name } = useCheckoutStore(state => state);
   return (
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolor sint
-      placeat natus laboriosam quisquam magni reiciendis temporibus ipsa,
-      corrupti maxime molestiae quasi aut, cumque rem illo ratione nostrum
-      voluptas.
+      <h1>Thank you, {name}!</h1>
+      <p>Agora envie seu pedido ao nosso WhatsApp para concluir</p>
     </div>
   );
 };
