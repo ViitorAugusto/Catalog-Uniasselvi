@@ -29,7 +29,7 @@ export function CartProducts() {
         <Button variant="link" size="icon" className="relative">
           <FiShoppingCart />
           {cart.length > 0 && (
-            <span className="absolute size-4 bg-red-600 rounded-full -right-1 top-1 ml-2 text-xs">
+            <span className="absolute size-4 bg-red-600 rounded-full -right-1 top-1 ml-2 text-xs text-white">
               {cart.length}
             </span>
           )}

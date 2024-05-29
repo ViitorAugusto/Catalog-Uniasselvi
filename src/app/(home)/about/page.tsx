@@ -43,13 +43,13 @@ export default function AboutPage() {
 
       <AboutProfile
         styles={true}
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere aliquam magnam distinctio, at, assumenda voluptatem reprehenderit ex facilis iusto!"
+        description="Olá, sou Luiz e minha paixão por tecnologia começou desde pequeno. Estudo programação há bastante tempo, sempre buscando aprender e me aperfeiçoar. Meu grande sonho é me tornar um desenvolvedor full stack, capaz de criar soluções completas e inovadoras. Estou sempre em busca de novos desafios e oportunidades para crescer na área de TI."
         name="Luiz"
         email=""
         icons={[]}
         image="/about/luiz.jpeg"
-        skills="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere aliquam magnam distinctio, at, assumenda voluptatem reprehenderit ex facilis iusto!"
-        experience="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere "
+        skills="Tenho facilidade de aprendizado e atualmente possuo nível intermediário em HTML, CSS, JavaScript, web design e GitHub. Embora esteja no início da minha jornada, estou constantemente buscando novos conhecimentos para aprimorar minhas habilidades. Meu objetivo é expandir meu domínio em diversas tecnologias e me tornar um desenvolvedor full stack altamente competente."
+        experience="Apesar de não ter experiência profissional em programação, realizo projetos próprios como sites e pequenas aplicações funcionais, como calculadoras e testes de ferramentas. Estou sempre explorando novas ideias para enriquecer meu portfólio e desenvolver minhas habilidades práticas."
         education=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur "
       />
 

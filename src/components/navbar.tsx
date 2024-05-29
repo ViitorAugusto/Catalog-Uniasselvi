@@ -4,7 +4,7 @@ import { CartProducts } from "./cart/cart-products";
 
 export default function NavBar() {
   return (
-    <header className="bg-white shadow-sm dark:bg-gray-950">
+    <header className="fixed top-0 left-0 w-full bg-white shadow-lg dark:bg-gray-950 z-50 ">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link className="flex items-center" href="/">
           <MountainIcon className="h-6 w-6 text-gray-900 dark:text-gray-50" />
@@ -12,7 +12,7 @@ export default function NavBar() {
             NexusTechStore
           </span>
         </Link>
-        <nav className="hidden space-x-4 md:flex md:justify-center md:items-center ">
+        <nav className="hidden space-x-4 md:flex md:justify-center md:items-center">
           <Link
             className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
             href="/"
