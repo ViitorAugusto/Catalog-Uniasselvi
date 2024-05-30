@@ -11,7 +11,6 @@ import { StepFinish } from "./step-finish";
 import { CheckoutSteps } from "@/types/checkout-steps";
 
 
-
 type CheckoutDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;

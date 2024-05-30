@@ -4,10 +4,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 export default function AboutPage() {
   return (
-    <section
-      className="w-full py-12 md:py-10 lg:py-16 bg-gray-100 dark:bg-gray-800"
-      id="about"
-    >
+    <section className="w-full py-24  bg-gray-100 dark:bg-gray-800" id="about">
       <AboutEcommerce />
 
       <AboutProfile
@@ -54,26 +51,26 @@ export default function AboutPage() {
       />
 
       <AboutProfile
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere aliquam magnam distinctio, at, assumenda voluptatem reprehenderit ex facilis iusto!"
+        description="..."
         name="Daniel"
         email=""
         icons={[]}
         image="/placeholder.svg"
-        skills="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere aliquam magnam distinctio, at, assumenda voluptatem reprehenderit ex facilis iusto!"
-        experience="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere "
-        education=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur "
+        skills="..."
+        experience="..."
+        education="..."
       />
 
       <AboutProfile
         styles={true}
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere aliquam magnam distinctio, at, assumenda voluptatem reprehenderit ex facilis iusto!"
+        description="..."
         name="Anilton"
         email=""
         icons={[]}
         image="/placeholder.svg"
-        skills="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere aliquam magnam distinctio, at, assumenda voluptatem reprehenderit ex facilis iusto!"
-        experience="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur repellat. Laborum porro commodi quae illum facere "
-        education=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae optio ipsa consequatur "
+        skills="..."
+        experience="..."
+        education="..."
       />
     </section>
   );

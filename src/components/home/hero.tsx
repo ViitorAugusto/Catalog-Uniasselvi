@@ -5,7 +5,7 @@ import { HeroCard } from "./hero-card";
 export default function Hero() {
   return (
     <>
-      <section className="w-full py-12 md:py-24 lg:py-32 font-rethink_sans">
+      <section className="w-full py-24 md:py-24 lg:py-32 font-rethink_sans">
         <div className="container flex flex-col-reverse lg:flex lg:flex-row gap-8 items-center">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-dm_sans">
