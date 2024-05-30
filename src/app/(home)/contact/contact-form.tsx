@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { FormContact } from "@/types/form-contact";
+import { ToastAction } from "@/components/ui/toast";
+import { toast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import z from "zod";
@@ -33,8 +34,43 @@ export const ContactForm = () => {
     },
   });
 
-  const handleSubmit = (value: z.infer<typeof formSchema>) => {
-    console.log(value);
+  const handleSubmit = async (value: z.infer<typeof formSchema>) => {
+    try {
+      const response = await fetch("/api/sendd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      });
+
+      if (!response.ok) {
+        toast({
+          title: "Erro ao enviar o formulário",
+          description: `Erro ao enviar o formulário`,
+          action: (
+            <ToastAction altText="fechar" className="">
+              Fechar
+            </ToastAction>
+          ),
+        });
+        throw new Error("Erro ao enviar o formulário");
+      }
+
+      const data = await response.json();
+      console.log("Formulário enviado com sucesso:", data);
+       toast({
+         title: "Produto adicionado ao carrinho",
+         description: `Formulário enviado com sucesso`,
+         action: (
+           <ToastAction altText="fechar" className="">
+             Fechar
+           </ToastAction>
+         ),
+       });
+    } catch (error) {
+      console.error("Erro ao enviar o formulário:", error);
+    }
   };
   return (
     <Form {...form}>
