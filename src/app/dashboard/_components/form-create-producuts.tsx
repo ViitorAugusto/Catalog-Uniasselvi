@@ -16,21 +16,32 @@ import { FaDoorClosed } from "react-icons/fa";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreatedProduct } from "@/schema";
+
 interface FormCreateProductsProps {
   onClose: () => void;
 }
 
-const onSubmit = async (data: zod.z.infer<typeof CreatedProduct>) => {
+const generateSlug = (title: string) => {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-") // Replace spaces and non-alphanumeric characters with hyphens
+    .replace(/^-+|-+$/g, ""); // Remove leading and trailing hyphens
+};
+
+const onSubmit = async (data: zod.infer<typeof CreatedProduct>) => {
   console.log("data", data);
-   const payload = {
-     title: data.title,
-     slug: data.slug,
-     price: data.price, // Certificar-se de que é um número
-     image: data.image,
-     description: data.description,
-     moreDetails: data.moreDetails,
-     featured: data.featured ? 1 : 0, // Laravel pode esperar 1 ou 0 para booleano
-   };
+
+  const formData = new FormData();
+  if (data.image && data.image[0]) {
+    formData.append("image", data.image[0]); // Append the image file
+  }
+  const payload = {
+    title: data.title,
+    slug: generateSlug(data.title),
+    price: Number(data.price),
+    image: data.image,
+  };
+
   try {
     const response = await fetch("http://127.0.0.1:8000/api/produtos/criar", {
       method: "POST",
@@ -48,23 +59,17 @@ const onSubmit = async (data: zod.z.infer<typeof CreatedProduct>) => {
 
     const result = await response.json();
     console.log("Produto criado com sucesso:", result);
-     // Fechar o formulário após o sucesso
   } catch (error) {
     console.error("Erro:", error);
   }
 };
-
 export const FormCreateProducts = ({ onClose }: FormCreateProductsProps) => {
   const form = useForm<zod.infer<typeof CreatedProduct>>({
     resolver: zodResolver(CreatedProduct),
     defaultValues: {
       title: "",
-      slug: "",
-      price: "",
-      image: "",
-      description: "",
-      moreDetails: "",
-      featured: false,
+      price: 0,
+      image: null,
     },
   });
   return (
@@ -92,7 +97,7 @@ export const FormCreateProducts = ({ onClose }: FormCreateProductsProps) => {
                   <FormItem>
                     <FormLabel>title</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="Fone..." type="Titulo" />
+                      <Input {...field} placeholder="Fone..." type="text" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -101,6 +106,38 @@ export const FormCreateProducts = ({ onClose }: FormCreateProductsProps) => {
             </div>
 
             <div className="grid gap-2">
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Price</FormLabel>
+                    <FormControl>
+                      <Input {...field} placeholder="100" type="number" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="grid gap-2">
+              <FormField
+                control={form.control}
+                name="image"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Image</FormLabel>
+                    <FormControl>
+                      <Input {...field} type="file" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* <div className="grid gap-2">
               <FormField
                 control={form.control}
                 name="slug"
@@ -200,9 +237,7 @@ export const FormCreateProducts = ({ onClose }: FormCreateProductsProps) => {
                   </FormItem>
                 )}
               />
-            </div>
-
-           
+            </div> */}
 
             <div className="flex justify-end gap-2">
               <Button type="button" variant="outline" onClick={onClose}>

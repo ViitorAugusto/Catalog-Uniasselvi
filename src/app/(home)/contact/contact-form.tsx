@@ -36,7 +36,7 @@ export const ContactForm = () => {
 
   const handleSubmit = async (value: z.infer<typeof formSchema>) => {
     try {
-      const response = await fetch("/api/sendd", {
+      const response = await fetch("/api/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
