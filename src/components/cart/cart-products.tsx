@@ -13,7 +13,7 @@ import { useCartStore } from "@/context/cart-store";
 import { FiShoppingCart } from "react-icons/fi";
 import { ItemCart } from "./item-cart";
 import { useState } from "react";
-import { CheckoutDialog } from "../checkout/checkoutDialog";
+import { CheckoutDialog } from "../checkout/checkout-dialog";
 
 export function CartProducts() {
   const [checkout, setCheckout] = useState(false);

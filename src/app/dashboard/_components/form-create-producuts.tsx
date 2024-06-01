@@ -9,8 +9,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { FaDoorClosed } from "react-icons/fa";
 import * as zod from "zod";
@@ -24,8 +22,8 @@ interface FormCreateProductsProps {
 const generateSlug = (title: string) => {
   return title
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-") // Replace spaces and non-alphanumeric characters with hyphens
-    .replace(/^-+|-+$/g, ""); // Remove leading and trailing hyphens
+    .replace(/[^a-z0-9]+/g, "-") 
+    .replace(/^-+|-+$/g, ""); 
 };
 
 const onSubmit = async (data: zod.infer<typeof CreatedProduct>) => {

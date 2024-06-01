@@ -29,6 +29,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { FormCreateProducts } from "./_components/form-create-producuts";
 import { useState } from "react";
+import { ProductsDialog } from "@/components/products/products-dialog";
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -255,7 +256,7 @@ export default function Dashboard() {
             </div>
           </main>
         </div>
-        {isModalOpen && <FormCreateProducts onClose={handleCloseModal} />}
+        <ProductsDialog open={isModalOpen} onOpenChange={handleCloseModal} />
       </div>
     </>
   );
