@@ -15,6 +15,15 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { generateSlug } from "@/utils/generateSlug";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { Switch } from "../ui/switch";
+import { Label } from "../ui/label";
 
 type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
@@ -27,9 +36,12 @@ const formSchema = z.object({
     z.number().min(1, "Preço muito baixo")
   ),
   description: z.string().min(3, "Descrição muito curta"),
-  moreDetails: z.string().min(3, "Detalhes muito curtos"),
+  moreDetails: z
+    .string()
+    .min(3, "Detalhes muito curtos")
+    .max(1000, "Detalhes muito longos"),
   category: z.string().min(3, "Categoria muito curta").optional(),
-  featured: z.boolean().optional(),
+  featured: z.union([z.literal(0), z.literal(1)]).optional(),
 });
 
 export const StepProducts = ({ setStep }: Props) => {
@@ -44,7 +56,6 @@ export const StepProducts = ({ setStep }: Props) => {
       description: infoProducts.description,
       moreDetails: infoProducts.moreDetails,
       category: infoProducts.category,
-      featured: infoProducts.featured,
     },
   });
 
@@ -60,7 +71,7 @@ export const StepProducts = ({ setStep }: Props) => {
       setIsTitleUnique(!data.exists);
     } catch (error) {
       console.error("Erro ao verificar o título:", error);
-      setIsTitleUnique(true); // Permitir a criação se houver um erro na verificação
+      setIsTitleUnique(true);
     } finally {
       setIsCheckingTitle(false);
     }
@@ -78,10 +89,10 @@ export const StepProducts = ({ setStep }: Props) => {
     const payload = {
       ...value,
       slug,
+      featured: value.featured === 1 ? true : false,
     };
     setInfoProducts(payload);
-    console.log("payload", payload); // Verificando o payload
-    setStep("imagesProducts"); // Passando para a próxima etapa
+    setStep("imagesProducts");
   };
 
   return (
@@ -153,13 +164,39 @@ export const StepProducts = ({ setStep }: Props) => {
             <FormItem>
               <FormLabel>Categoria</FormLabel>
               <FormControl>
-                <Input placeholder="Digite a categoria do produto" {...field} />
+                <Select
+                  defaultValue={field.value}
+                  onValueChange={field.onChange}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Categoria" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="eletronics">Eletrônicos</SelectItem>
+                    <SelectItem value="clothing">Roupas</SelectItem>
+                    <SelectItem value="books">Livros</SelectItem>
+                    <SelectItem value="games">Jogos</SelectItem>
+                  </SelectContent>
+                </Select>
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        
+        <FormField
+          control={form.control}
+          name="featured"
+          render={({ field }) => (
+            <>
+              <Switch
+                checked={field.value === 1}
+                onCheckedChange={checked => field.onChange(checked ? 1 : 0)}
+                id="featured"
+              />
+              <Label htmlFor="featured">Destaque</Label>
+            </>
+          )}
+        />
         <div className="flex justify-end mt-4">
           <Button type="submit" disabled={isCheckingTitle}>
             Próximo

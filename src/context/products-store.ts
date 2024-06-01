@@ -9,14 +9,14 @@ type States = {
     description: string;
     moreDetails: string;
     category?: string;
-    featured? : boolean;
+    featured?: boolean;
   };
-  image : string;
+  image: File | null;
 };
 
 type Actions = {
   setInfoProducts: (infoProducts: States["infoProducts"]) => void;
-  setImage: (image: string) => void;
+  setImage: (image: File) => void;
 };
 
 
@@ -30,11 +30,11 @@ const initialState: States = {
     category: "",
     featured: false,
   },
-  image: "",
+  image: null,
 };
 
 export const useProductsStore = create<States & Actions>()(set => ({
-    ...initialState,
-    setInfoProducts: infoProducts => set(state => ({ ...state, infoProducts })),
-    setImage: image => set(state => ({ ...state, image })),
+  ...initialState,
+  setInfoProducts: infoProducts => set(state => ({ ...state, infoProducts })),
+  setImage: image => set(state => ({ ...state, image })),
 }));

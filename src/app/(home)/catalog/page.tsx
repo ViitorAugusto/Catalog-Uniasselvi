@@ -12,9 +12,13 @@ const Page = async () => {
           <h1>{product.title}</h1>
           <p>{product.slug}</p>
           <p>{product.price}</p>
+          <p>{product.description}</p>
+          <p>moreDetails :{product.moreDetails}</p>
+          <p>{product.category}</p>
+          <p>{product.featured}</p>
           {product.image && (
             <Image
-            className="rounded-lg w-auto h-auto mx-auto container"
+              className="rounded-lg w-auto h-auto mx-auto container"
               src={`${baseURL}${product.image}`}
               alt={product.title}
               width={1000}
