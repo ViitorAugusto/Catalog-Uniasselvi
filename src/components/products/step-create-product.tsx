@@ -7,20 +7,26 @@ type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
 };
 
-
-export const StepCreateProduct = ({ setStep }:Props) => {
-  const { infoProducts, image } = useProductsStore(state => state);
+export const StepCreateProduct = ({ setStep }: Props) => {
+  const { infoProducts, images, mainImage } = useProductsStore(state => state);
   console.log(infoProducts);
-  console.log(image);
+  console.log(images);
+  console.log(mainImage);
 
   const createProduct = async () => {
-    if (!image) {
+    if (!images.length) {
       console.error("Erro: Nenhuma imagem foi selecionada.");
       return;
     }
 
     const formData = new FormData();
-    formData.append("image", image); 
+    images.forEach((image, index) => {
+      formData.append(`images[${index}]`, image);
+    });
+    if (mainImage) {
+      formData.append("mainImage", mainImage);
+    }
+
     formData.append("title", infoProducts.title);
     formData.append("slug", infoProducts.slug);
     formData.append("price", infoProducts.price.toString());
@@ -30,13 +36,10 @@ export const StepCreateProduct = ({ setStep }:Props) => {
     formData.append("featured", infoProducts.featured ? "1" : "0");
 
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/produtos/criar",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("http://127.0.0.1:8000/api/produtos/criar", {
+        method: "POST",
+        body: formData,
+      });
 
       if (!response.ok) {
         const errorData = await response.json();

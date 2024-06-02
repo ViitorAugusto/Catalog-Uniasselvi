@@ -21,7 +21,7 @@ export const ProductsDialog = ({ onOpenChange, open }: ProductsDialogProps) => {
   const [step, setStep] = useState<ProductSteps>("products");
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className="">
         <DialogHeader>
           <DialogTitle>
             {step === "products" && "Informações do Produto"}

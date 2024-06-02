@@ -4,7 +4,7 @@ export interface Product {
   slug: string;
   price: number;
   image: string;
-  images: string[];
+  images: Array<{ id: number; path: string }>;
   description: string;
   moreDetails: string;
   category?: string;

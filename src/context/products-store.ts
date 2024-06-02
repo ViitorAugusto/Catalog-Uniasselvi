@@ -1,6 +1,5 @@
 import { create } from "zustand";
 
-
 type States = {
   infoProducts: {
     title: string;
@@ -11,14 +10,15 @@ type States = {
     category?: string;
     featured?: boolean;
   };
-  image: File | null;
+  images: File[];
+  mainImage: File | null;
 };
 
 type Actions = {
   setInfoProducts: (infoProducts: States["infoProducts"]) => void;
-  setImage: (image: File) => void;
+  setImages: (images: File[]) => void;
+  setMainImage: (image: File) => void;
 };
-
 
 const initialState: States = {
   infoProducts: {
@@ -30,11 +30,13 @@ const initialState: States = {
     category: "",
     featured: false,
   },
-  image: null,
+  images: [],
+  mainImage: null,
 };
 
 export const useProductsStore = create<States & Actions>()(set => ({
   ...initialState,
   setInfoProducts: infoProducts => set(state => ({ ...state, infoProducts })),
-  setImage: image => set(state => ({ ...state, image })),
+  setImages: images => set(state => ({ ...state, images })),
+  setMainImage: mainImage => set(state => ({ ...state, mainImage })),
 }));

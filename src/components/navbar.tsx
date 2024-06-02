@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { ModeToggle } from "./button-theme";
 import { CartProducts } from "./cart/cart-products";
+import { IoCodeSlash } from "react-icons/io5";
 
 export default function NavBar() {
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-lg dark:bg-gray-950 z-50 ">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link className="flex items-center" href="/">
-          <MountainIcon className="h-6 w-6 text-gray-900 dark:text-gray-50" />
+          <IoCodeSlash className="h-6 w-6 text-gray-900 dark:text-gray-50" />
+
           <span className="ml-2 text-lg font-medium text-gray-900 dark:text-gray-50">
             NexusTechStore
           </span>
