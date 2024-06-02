@@ -3,25 +3,25 @@ export const CustomerReviews = () => {
     <section className="bg-gray-100 dark:bg-gray-800 py-12 md:py-20">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          Customer Reviews
+          Avaliações de Clientes
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6">
             <div className="flex items-center gap-2 mb-4">
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-muted stroke-muted-foreground" />
               <span className="text-gray-500 dark:text-gray-400">(4.2)</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              "This backpack is amazing! The quality is top-notch and it's
-              extremely comfortable to wear. Highly recommended!"
+              "Esta mochila é incrível! A qualidade é de primeira e é
+              extremamente confortável de usar. Altamente recomendada!"
             </p>
             <div className="flex items-center gap-2">
               <img
-                alt="User Avatar"
+                alt="Avatar do Usuário"
                 className="rounded-full"
                 height={40}
                 src="/placeholder.svg"
@@ -34,27 +34,27 @@ export const CustomerReviews = () => {
               <div>
                 <h3 className="font-medium">John Doe</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Verified Buyer
+                  Comprador Verificado
                 </p>
               </div>
             </div>
           </div>
           <div className="bg-white dark:bg-gray-950 rounded-lg shadow-lg p-6">
             <div className="flex items-center gap-2 mb-4">
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-primary" />
-              <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
-              <StarIcon className="w-5 h-5 fill-muted stroke-muted-foreground" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-primary" />
+              <IconeEstrela className="w-5 h-5 fill-muted stroke-muted-foreground" />
+              <IconeEstrela className="w-5 h-5 fill-muted stroke-muted-foreground" />
               <span className="text-gray-500 dark:text-gray-400">(3.2)</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              "The backpack is well-made, but the straps could be a bit more
-              comfortable. Overall, it's a good product."
+              "A mochila é bem feita, mas as alças poderiam ser um pouco mais
+              confortáveis. No geral, é um bom produto."
             </p>
             <div className="flex items-center gap-2">
               <img
-                alt="User Avatar"
+                alt="Avatar do Usuário"
                 className="rounded-full"
                 height={40}
                 src="/placeholder.svg"
@@ -67,7 +67,7 @@ export const CustomerReviews = () => {
               <div>
                 <h3 className="font-medium">Jane Smith</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Verified Buyer
+                  Comprador Verificado
                 </p>
               </div>
             </div>
@@ -78,8 +78,7 @@ export const CustomerReviews = () => {
   );
 };
 
-
-function StarIcon(props: any) {
+function IconeEstrela(props: any) {
   return (
     <svg
       {...props}

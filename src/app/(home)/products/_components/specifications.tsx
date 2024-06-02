@@ -5,63 +5,64 @@ export const Specifications = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Product Details
+              Detalhes do Produto
             </h2>
             <ul className="space-y-2 text-gray-500 dark:text-gray-400">
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Material:
                 </strong>
-                Italian Leather
+                Couro Italiano
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
-                  Dimensions:
+                  Dimensões:
                 </strong>
                 15" x 11" x 5"
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
-                  Weight:
+                  Peso:
                 </strong>
-                2.5 lbs
+                2,5 lbs
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
-                  Features:
+                  Características:
                 </strong>
-                Padded laptop compartment, multiple pockets, water-resistant
+                Compartimento acolchoado para laptop, múltiplos bolsos,
+                resistente à água
               </li>
             </ul>
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Specifications
+              Especificações
             </h2>
             <ul className="space-y-2 text-gray-500 dark:text-gray-400">
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Material:
                 </strong>
-                100% Italian Leather
+                100% Couro Italiano
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
-                  Hardware:
+                  Ferragens:
                 </strong>
-                Solid Brass Zippers and Buckles
+                Zíperes e fivelas de latão maciço
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
-                  Capacity:
+                  Capacidade:
                 </strong>
-                15" Laptop, A4 Folders, and Daily Essentials
+                Laptop de 15", Pastas A4, e itens essenciais do dia a dia
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
-                  Warranty:
+                  Garantia:
                 </strong>
-                1 Year Manufacturer's Warranty
+                1 ano de garantia do fabricante
               </li>
             </ul>
           </div>

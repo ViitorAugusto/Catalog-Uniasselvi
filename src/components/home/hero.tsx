@@ -17,7 +17,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <Button size="lg">Compre agora</Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" >
                 Saiba mais
               </Button>
             </div>
@@ -30,7 +30,7 @@ export default function Hero() {
           <HeroCard
             title="Setup gamer completo"
             description="Aumente seu conforto e produtividade com nossos produtos premium cadeira de mesa e setups."
-            image="/catalog-products/table.png"
+            image="/banner/baner-table.png"
           />
           <HeroCard
             title="Drones IAs e Robôs"
@@ -40,7 +40,7 @@ export default function Hero() {
           <HeroCard
             title="Configuração definitiva para jogos e escritório"
             description="Cada peça foi projetada para oferecer desempenho superior, durabilidade e estilo."
-            image="/banner/vitrine.png"
+            image="/banner/bannervibrant.png"
           />
         </div>
       </section>

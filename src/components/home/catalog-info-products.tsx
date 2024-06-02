@@ -66,20 +66,9 @@ export const CatalogInfoProducts = ({ item }: CartItem) => {
               currency: "BRL",
             })}
           </p>
-          {/* <div className="text-sm text-gray-500 dark:text-gray-400">
-            <span className="line-through">
-              {originalPrice.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </span>
-            <span className="text-emerald-700 ml-2 font-bold">
-              {pixDiscount}% off
-            </span>
-          </div>  */}
         </div>
         <Button size="sm" onClick={handleAddToCart}>
-          Add to Cart <FiShoppingCart className="ml-2" />
+          Comprar  <FiShoppingCart className="ml-2" />
         </Button>
       </div>
     </div>

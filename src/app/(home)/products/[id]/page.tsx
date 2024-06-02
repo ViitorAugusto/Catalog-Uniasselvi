@@ -1,6 +1,4 @@
-// /app/products/[slug]/page.tsx
 import { getProductById } from "@/services/getProductById";
-import { Product } from "@/types/product";
 import DetailsProducsts from "../_components/details-producsts";
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 
 const DetailsProductsPage = async ({ params }: Props) => {
   const product = await getProductById(Number(params.id));
+  const imagePaths = product.images.map((image) => image.path);
   return (
     <>
       <DetailsProducsts
@@ -19,8 +18,7 @@ const DetailsProductsPage = async ({ params }: Props) => {
         moreDetails={product.moreDetails}
         price={product.price}
         img={product.image}
-        images={product.images}
-        
+        images={imagePaths}
       />
     </>
   );

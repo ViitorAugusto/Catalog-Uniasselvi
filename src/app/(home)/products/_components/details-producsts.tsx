@@ -39,7 +39,7 @@ export default function DetailsProducsts({
   const installmentPrice = price / (1 - installmentDiscount / 100);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen mt-12">
       <main className="flex-1">
         <section className="container mx-auto px-4 md:px-6 py-6 md:py-12">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -122,81 +122,6 @@ export default function DetailsProducsts({
               </p>
 
               <div className="mt-8 grid gap-4">
-                {/* <div className="grid gap-2">
-                  <Label className="text-base" htmlFor="color">
-                    Color
-                  </Label>
-                  <RadioGroup
-                    className="flex items-center gap-2"
-                    defaultValue="blanco"
-                    id="color"
-                  >
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="color-blanco"
-                    >
-                      <RadioGroupItem id="color-blanco" value="blanco" />
-                      Blanco
-                    </Label>
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="color-azul"
-                    >
-                      <RadioGroupItem id="color-azul" value="azul" />
-                      Azul
-                    </Label>
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="color-rosa"
-                    >
-                      <RadioGroupItem id="color-rosa" value="rosa" />
-                      Rosa
-                    </Label>
-                  </RadioGroup>
-                </div> */}
-                {/* <div className="grid gap-2">
-                  <Label className="text-base" htmlFor="talla">
-                    Talla
-                  </Label>
-                  <RadioGroup
-                    className="flex items-center gap-2"
-                    defaultValue="m"
-                    id="talla"
-                  >
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="talla-xs"
-                    >
-                      <RadioGroupItem id="talla-xs" value="xs" />
-                      XS
-                    </Label>
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="talla-s"
-                    >
-                      <RadioGroupItem id="talla-s" value="s" />S
-                    </Label>
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="talla-m"
-                    >
-                      <RadioGroupItem id="talla-m" value="m" />M
-                    </Label>
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="talla-l"
-                    >
-                      <RadioGroupItem id="talla-l" value="l" />L
-                    </Label>
-                    <Label
-                      className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-gray-100 dark:[&:has(:checked)]:bg-gray-800"
-                      htmlFor="talla-xl"
-                    >
-                      <RadioGroupItem id="talla-xl" value="xl" />
-                      XL
-                    </Label>
-                  </RadioGroup>
-                </div> */}
                 <div className="grid gap-2">
                   <Label className="text-base" htmlFor="cantidad">
                     Quantidade

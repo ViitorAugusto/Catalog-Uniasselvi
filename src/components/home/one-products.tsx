@@ -30,7 +30,7 @@ export default function OneProducts() {
           </p>
           <div className="flex items-center gap-4">
             <span className="text-3xl font-bold">R$: 3.999,99</span>
-            <Button size="lg">Add to Cart</Button>
+            <Button size="lg">Adionar ao carrinho</Button>
           </div>
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">

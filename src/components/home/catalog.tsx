@@ -1,4 +1,4 @@
-import { getAllProducts, getProductPage } from "@/services/product";
+import { getAllProducts } from "@/services/product";
 import { CatalogInfoProducts } from "./catalog-info-products";
 
 export default async function Catalog() {

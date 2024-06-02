@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { getAllProducts } from "@/services/product";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function CarouselHome() {
   const products = await getAllProducts();
@@ -46,7 +47,9 @@ export default async function CarouselHome() {
                           currency: "BRL",
                         })}
                       </p>
-                      <Button size="sm">Add to Cart</Button>
+                      <Link href={`/products/${product.id}`}>
+                        <Button size="sm">Mais detalhes</Button>
+                      </Link>
                     </div>
                   </div>
                 </CarouselItem>

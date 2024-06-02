@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeroCardProps {
   title: string;
@@ -30,13 +31,11 @@ export const HeroCard = ({ description, image, title }: HeroCardProps) => {
         quality={80}
       />
       <CardContent className="pt-4">
-        <CardTitle className="font-dm_sans pb-1">
-          {title}
-        </CardTitle>
-        <CardDescription>
-         {description}
-        </CardDescription>
-        <Button variant="link">Comprar agora</Button>
+        <CardTitle className="font-dm_sans pb-1">{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+        <Button variant="link">
+          <Link href="/catalog">Comprar agora</Link>
+        </Button>
       </CardContent>
     </Card>
   );
