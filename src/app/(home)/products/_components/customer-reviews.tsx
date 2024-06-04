@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const CustomerReviews = () => {
   return (
     <section className="bg-gray-100 dark:bg-gray-800 py-12 md:py-20">
@@ -16,11 +18,11 @@ export const CustomerReviews = () => {
               <span className="text-gray-500 dark:text-gray-400">(4.2)</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              "Esta mochila é incrível! A qualidade é de primeira e é
-              extremamente confortável de usar. Altamente recomendada!"
+              &quot;Esta mochila é incrível! A qualidade é de primeira e é
+              extremamente confortável de usar. Altamente recomendada!&quot;
             </p>
             <div className="flex items-center gap-2">
-              <img
+              <Image
                 alt="Avatar do Usuário"
                 className="rounded-full"
                 height={40}
@@ -49,11 +51,11 @@ export const CustomerReviews = () => {
               <span className="text-gray-500 dark:text-gray-400">(3.2)</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              "A mochila é bem feita, mas as alças poderiam ser um pouco mais
-              confortáveis. No geral, é um bom produto."
+              &quot;A mochila é bem feita, mas as alças poderiam ser um pouco
+              mais confortáveis. No geral, é um bom produto.&quot;
             </p>
             <div className="flex items-center gap-2">
-              <img
+              <Image
                 alt="Avatar do Usuário"
                 className="rounded-full"
                 height={40}

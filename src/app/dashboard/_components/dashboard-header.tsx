@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { IoCodeSlash } from "react-icons/io5";
@@ -31,7 +32,7 @@ export const DashboardHeader = () => {
               size="icon"
               variant="ghost"
             >
-              <img
+              <Image
                 alt="Avatar"
                 className="rounded-full"
                 height="32"

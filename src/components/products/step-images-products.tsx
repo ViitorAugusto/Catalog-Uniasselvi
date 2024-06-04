@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
@@ -109,10 +110,14 @@ export const StepImagesProducts = ({ setStep }: Props) => {
                         : ""
                     }`}
                   >
-                    <img
+                    <Image
                       src={src}
                       alt={`Preview ${index}`}
                       className="max-w-xs"
+                      width={200}
+                      height={200}
+                      objectFit="cover"
+                      priority
                     />
                     <Button
                       variant="outline"

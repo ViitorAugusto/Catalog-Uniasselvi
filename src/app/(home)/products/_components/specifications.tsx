@@ -18,7 +18,7 @@ export const Specifications = () => {
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Dimensões:
                 </strong>
-                15" x 11" x 5"
+                15 x 11 x 5
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
@@ -56,7 +56,7 @@ export const Specifications = () => {
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Capacidade:
                 </strong>
-                Laptop de 15", Pastas A4, e itens essenciais do dia a dia
+                Laptop de 15, Pastas A4, e itens essenciais do dia a dia
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">

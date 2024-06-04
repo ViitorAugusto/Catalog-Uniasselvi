@@ -1,5 +1,6 @@
 import { Cart } from "@/types/cart";
 import { CartItemQuantity } from "./item-quantity";
+import Image from "next/image";
 
 type CartItem = {
   item: Cart;
@@ -9,10 +10,13 @@ export const ItemCart = ({ item }: CartItem) => {
   return (
     <div className="flex items-center gap-5 my-0.5">
       <div className="w-20 overflow-hidden rounded-md">
-        <img
+        <Image
           src={item.product.image}
           alt={item.product.title}
           className="w-full h-auto object-cover"
+          width={80}
+          height={80}
+          priority
         />
       </div>
       <div className="flex-1">
