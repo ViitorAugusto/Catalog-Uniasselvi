@@ -18,8 +18,8 @@ export const CustomerReviews = () => {
               <span className="text-gray-500 dark:text-gray-400">(4.2)</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              &quot;Esta mochila é incrível! A qualidade é de primeira e é
-              extremamente confortável de usar. Altamente recomendada!&quot;
+              Esta mochila é incrível! A qualidade é de primeira e é
+              extremamente confortável de usar. Altamente recomendada!
             </p>
             <div className="flex items-center gap-2">
               <Image
@@ -28,7 +28,7 @@ export const CustomerReviews = () => {
                 height={40}
                 src="/placeholder.svg"
                 style={{
-                  aspectRatio: "40/40",
+                  aspectRatio: "1/1",
                   objectFit: "cover",
                 }}
                 width={40}
@@ -51,8 +51,8 @@ export const CustomerReviews = () => {
               <span className="text-gray-500 dark:text-gray-400">(3.2)</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              &quot;A mochila é bem feita, mas as alças poderiam ser um pouco
-              mais confortáveis. No geral, é um bom produto.&quot;
+              A mochila é bem feita, mas as alças poderiam ser um pouco mais
+              confortáveis. No geral, é um bom produto.
             </p>
             <div className="flex items-center gap-2">
               <Image
@@ -61,7 +61,7 @@ export const CustomerReviews = () => {
                 height={40}
                 src="/placeholder.svg"
                 style={{
-                  aspectRatio: "40/40",
+                  aspectRatio: "1/1",
                   objectFit: "cover",
                 }}
                 width={40}

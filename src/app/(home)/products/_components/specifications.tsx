@@ -11,25 +11,25 @@ export const Specifications = () => {
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Material:
-                </strong>
+                </strong>{" "}
                 Couro Italiano
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Dimensões:
-                </strong>
+                </strong>{" "}
                 15 x 11 x 5
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Peso:
-                </strong>
+                </strong>{" "}
                 2,5 lbs
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Características:
-                </strong>
+                </strong>{" "}
                 Compartimento acolchoado para laptop, múltiplos bolsos,
                 resistente à água
               </li>
@@ -43,25 +43,25 @@ export const Specifications = () => {
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Material:
-                </strong>
+                </strong>{" "}
                 100% Couro Italiano
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Ferragens:
-                </strong>
+                </strong>{" "}
                 Zíperes e fivelas de latão maciço
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Capacidade:
-                </strong>
+                </strong>{" "}
                 Laptop de 15, Pastas A4, e itens essenciais do dia a dia
               </li>
               <li>
                 <strong className="text-gray-900 dark:text-gray-100 font-medium">
                   Garantia:
-                </strong>
+                </strong>{" "}
                 1 ano de garantia do fabricante
               </li>
             </ul>
