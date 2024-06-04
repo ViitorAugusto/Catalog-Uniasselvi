@@ -20,7 +20,7 @@ const formSchema = z.object({
   nome: z.string().min(3, "Nome muito curto"),
   email: z.string().email("Email inválido"),
   cell: z.string().min(11, "Celular inválido"),
-  mensagem: z.string().min(10, "Mensagem muito curta"),
+  mensagem: z.string().min(10, "Mensagem deve ter no mínimo 10 caracteres"),
 });
 
 export const ContactForm = () => {
@@ -47,31 +47,33 @@ export const ContactForm = () => {
       if (!response.ok) {
         toast({
           title: "Erro ao enviar o formulário",
-          description: `Erro ao enviar o formulário`,
-          action: (
-            <ToastAction altText="fechar" className="">
-              Fechar
-            </ToastAction>
-          ),
+          description:
+            "Ocorreu um erro ao tentar enviar o formulário. Por favor, tente novamente.",
+          action: <ToastAction altText="fechar">Fechar</ToastAction>,
         });
         throw new Error("Erro ao enviar o formulário");
       }
 
       const data = await response.json();
       console.log("Formulário enviado com sucesso:", data);
-       toast({
-         title: "Produto adicionado ao carrinho",
-         description: `Formulário enviado com sucesso`,
-         action: (
-           <ToastAction altText="fechar" className="">
-             Fechar
-           </ToastAction>
-         ),
-       });
+      toast({
+        title: "Formulário enviado",
+        description: "Seu formulário foi enviado com sucesso!",
+        action: <ToastAction altText="fechar">Fechar</ToastAction>,
+      });
+
+      form.reset(); 
     } catch (error) {
       console.error("Erro ao enviar o formulário:", error);
+      toast({
+        title: "Erro ao enviar o formulário",
+        description:
+          "Ocorreu um erro ao tentar enviar o formulário. Por favor, tente novamente.",
+        action: <ToastAction altText="fechar">Fechar</ToastAction>,
+      });
     }
   };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
@@ -129,7 +131,7 @@ export const ContactForm = () => {
         />
 
         <div className="pt-4">
-          <Button type="submit" className="w-full h-10 uppercase font-bold ">
+          <Button type="submit" className="w-full h-10 uppercase font-bold">
             Enviar
           </Button>
         </div>

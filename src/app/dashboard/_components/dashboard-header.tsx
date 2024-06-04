@@ -35,13 +35,13 @@ export const DashboardHeader = () => {
               <Image
                 alt="Avatar"
                 className="rounded-full"
-                height="32"
+                height={32}
                 src="https://avatars.githubusercontent.com/u/106840657?v=4"
                 style={{
                   aspectRatio: "32/32",
                   objectFit: "cover",
                 }}
-                width="32"
+                width={32}
               />
               <span className="sr-only">Toggle user menu</span>
             </Button>

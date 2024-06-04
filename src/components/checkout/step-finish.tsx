@@ -17,7 +17,7 @@ export const StepFinish = ({ onClose }: Props) => {
   const { resetCart, toggleDrawer } = useCartStore(state => ({
     resetCart: state.resetCart,
     toggleDrawer: state.toggleDrawer,
-  })); 
+  }));
 
   const message = GenerateMessage();
   const url = `https://wa.me/${process.env.NEXT_PUBLIC_ZAP}?text=${encodeURI(
@@ -27,14 +27,20 @@ export const StepFinish = ({ onClose }: Props) => {
   const handleSend = () => {
     reset();
     resetCart();
-    toggleDrawer(false); 
+    toggleDrawer(false);
     if (onClose) {
       onClose();
     }
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault(); 
+    window.open(url, "_blank"); 
+    handleSend(); 
+  };
+
   return (
-    <div className="space-y-4 rounded-lg shadow-md">
+    <div className="space-y-4 rounded-lg ">
       <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
         Obrigado {name}!
       </h1>
@@ -42,11 +48,7 @@ export const StepFinish = ({ onClose }: Props) => {
         Para concluir seu pedido, por favor, envie os detalhes para o nosso
         WhatsApp.
       </p>
-      <Button onClick={handleSend}>
-        <Link target="_blank" href={url}>
-          Enviar para WhatsApp
-        </Link>
-      </Button>
+      <Button onClick={handleClick}>Enviar para WhatsApp</Button>
     </div>
   );
 };

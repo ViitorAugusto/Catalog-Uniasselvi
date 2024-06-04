@@ -140,6 +140,10 @@ export default function Dashboard() {
                         description={product.description}
                         price={product.price}
                         image={product.image}
+                        id={product.id}
+                        onDelete={id => {
+                          setData(data.filter(item => item.id !== id));
+                        }}
                       />
                     ))
                   ) : (
