@@ -4,14 +4,18 @@ import { create } from "zustand";
 
 type States = {
   cart: Cart[];
+  isDrawerOpen: boolean;
 };
 
 type Actions = {
   upsertCartItem: (product: Product, quantity: number) => void;
+  resetCart: () => void;
+  toggleDrawer: (open: boolean) => void;
 };
 
 const initialState: States = {
   cart: [],
+  isDrawerOpen: false,
 };
 
 export const useCartStore = create<States & Actions>()(set => ({
@@ -38,4 +42,6 @@ export const useCartStore = create<States & Actions>()(set => ({
       }
       return { ...state, cart: newCart };
     }),
+  resetCart: () => set(() => ({ cart: [], isDrawerOpen: false })),
+  toggleDrawer: open => set(() => ({ isDrawerOpen: open })),
 }));

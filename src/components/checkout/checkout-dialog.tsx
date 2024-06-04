@@ -10,7 +10,6 @@ import { StepAddress } from "./step-address";
 import { StepFinish } from "./step-finish";
 import { CheckoutSteps } from "@/types/checkout-steps";
 
-
 type CheckoutDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -31,7 +30,9 @@ export const CheckoutDialog = ({ onOpenChange, open }: CheckoutDialogProps) => {
         <div className="flex flex-col gap-3">
           {step === "user" && <StepUser setStep={setStep} />}
           {step === "address" && <StepAddress setStep={setStep} />}
-          {step === "finish" && <StepFinish  />}
+          {step === "finish" && (
+            <StepFinish onClose={() => onOpenChange(false)} />
+          )}
         </div>
       </DialogContent>
     </Dialog>

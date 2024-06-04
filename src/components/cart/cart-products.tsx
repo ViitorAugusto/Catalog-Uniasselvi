@@ -17,13 +17,26 @@ import { CheckoutDialog } from "../checkout/checkout-dialog";
 
 export function CartProducts() {
   const [checkout, setCheckout] = useState(false);
-  const { cart } = useCartStore(state => state);
+  const [isSheetOpen, setIsSheetOpen] = useState(false); // Estado para controlar a abertura do Sheet
+  const { cart, resetCart } = useCartStore(state => ({
+    cart: state.cart,
+    resetCart: state.resetCart,
+  }));
+
   let subtotal = 0;
   for (let item of cart) {
     subtotal += item.quantity * item.product.price;
   }
+
+  const handleCheckoutOpenChange = (open:any) => {
+    setCheckout(open);
+    if (!open) {
+      setIsSheetOpen(false); 
+    }
+  };
+
   return (
-    <Sheet>
+    <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
       <SheetTrigger asChild>
         <Button variant="link" size="icon" className="relative">
           <FiShoppingCart />
@@ -67,7 +80,10 @@ export function CartProducts() {
             Finalizar Pedido
           </Button>
         </SheetFooter>
-        <CheckoutDialog open={checkout} onOpenChange={setCheckout} />
+        <CheckoutDialog
+          open={checkout}
+          onOpenChange={handleCheckoutOpenChange}
+        />
       </SheetContent>
     </Sheet>
   );

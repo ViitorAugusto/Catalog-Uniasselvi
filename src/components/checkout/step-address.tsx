@@ -45,7 +45,7 @@ export const StepAddress = ({ setStep }: Props) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="md:grid md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
             name="street"

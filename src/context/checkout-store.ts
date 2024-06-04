@@ -15,6 +15,7 @@ type States = {
 type Actions = {
   setName: (name: string) => void;
   setAddress: (address: States["address"]) => void;
+  reset: () => void;
 };
 
 const initialState: States = {
@@ -33,4 +34,5 @@ export const useCheckoutStore = create<States & Actions>()(set => ({
   ...initialState,
   setName: name => set(state => ({ ...state, name })),
   setAddress: address => set(state => ({ ...state, address })),
+  reset: () => set(initialState),
 }));
