@@ -1,56 +1,65 @@
+import Link from "next/link";
+import React, { Suspense } from "react";
+import { CatalogProducts } from "./_components/catalog-products";
 import { getProductLaravel } from "@/services/getProductsLaravel";
-import Image from "next/image";
+import SkeletonCatalog from "./_components/loading";
 
-const Page = async () => {
-  const catalog = await getProductLaravel();
-  const baseURL = "http://127.0.0.1:8000/storage/"; // Altere para o URL do seu backend
-  console.log("Catalog:", catalog);
+const Catalog = async () => {
+  const products = await getProductLaravel();
 
   return (
-    <div className="mt-24 mx-auto container">
-      {catalog.map(product => (
-        <div key={product.id} className="mb-8">
-          <h1 className="text-xl font-bold">{product.title}</h1>
-          <p className="text-sm text-gray-600">{product.slug}</p>
-          <p className="text-lg font-semibold text-gray-800">
-            ${product.price}
-          </p>
-          <p className="text-gray-700">{product.description}</p>
-          <p className="text-gray-700">{product.moreDetails}</p>
-          <p className="text-gray-600">{product.category}</p>
-          <p className="text-gray-600">
-            {product.featured ? "Featured" : "Not Featured"}
-          </p>
-          {product.image && (
-            <Image
-              className="rounded-lg w-auto h-auto mx-auto"
-              src={`${baseURL}${product.image}`}
-              alt={product.title}
-              width={500}
-              height={500}
-              quality={100}
-              priority
-            />
-          )}
-          {product.images && product.images.length > 0 && (
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {product.images.map(img => (
-                <Image
-                  key={img.id}
-                  className="rounded-lg w-auto h-auto"
-                  src={`${baseURL}${img.path}`}
-                  alt={product.title}
-                  width={250}
-                  height={250}
-                  quality={100}
-                />
-              ))}
-            </div>
-          )}
+    <>
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 py-28 min-h-screen ">
+        <div className="p-6 rounded-lg dark:bg-gray-900">
+          <h2 className="text-lg font-semibold mb-4">Categories</h2>
+          <div className="grid gap-2">
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Electronics
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Clothing
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Home & Garden
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Beauty & Personal Care
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Sports & Outdoors
+            </Link>
+          </div>
         </div>
-      ))}
-    </div>
+        <Suspense fallback={<SkeletonCatalog />}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map(product => (
+              <CatalogProducts key={product.id} item={product} />
+            ))}
+          </div>
+        </Suspense>
+      </div>
+    </>
   );
 };
 
-export default Page;
+export default Catalog;

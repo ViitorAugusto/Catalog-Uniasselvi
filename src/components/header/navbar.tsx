@@ -32,6 +32,12 @@ export default function NavBar() {
             </Link>
             <Link
               className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="/catalog"
+            >
+              Produtos
+            </Link>
+            <Link
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               href="/about"
             >
               Sobre
