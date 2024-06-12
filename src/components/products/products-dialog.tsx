@@ -34,7 +34,12 @@ export const ProductsDialog = ({ onOpenChange, open }: ProductsDialogProps) => {
           {step === "imagesProducts" && (
             <StepImagesProducts setStep={setStep} />
           )}
-          {step === "createProduct" && <StepCreateProduct setStep={setStep} />}
+          {step === "createProduct" && (
+            <StepCreateProduct
+              setStep={setStep}
+              onClose={() => onOpenChange(false)}
+            />
+          )}
         </div>
       </DialogContent>
     </Dialog>

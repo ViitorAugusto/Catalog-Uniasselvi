@@ -5,9 +5,10 @@ import { ProductSteps } from "@/types/products-steps";
 
 type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
+  onClose: () => void;
 };
 
-export const StepCreateProduct = ({ setStep }: Props) => {
+export const StepCreateProduct = ({ setStep, onClose }: Props) => {
   const { infoProducts, images, mainImage } = useProductsStore(state => state);
   console.log(infoProducts);
   console.log(images);
@@ -47,6 +48,7 @@ export const StepCreateProduct = ({ setStep }: Props) => {
       }
       const data = await response.json();
       console.log(data);
+      onClose();
     } catch (error) {
       console.error("Erro ao criar produto:", error);
     }
@@ -62,7 +64,7 @@ export const StepCreateProduct = ({ setStep }: Props) => {
         <Button variant="link" onClick={() => setStep("imagesProducts")}>
           Voltar
         </Button>
-        <Button type="submit" onClick={createProduct}>
+        <Button type="button" onClick={createProduct}>
           Salvar
         </Button>
       </div>
