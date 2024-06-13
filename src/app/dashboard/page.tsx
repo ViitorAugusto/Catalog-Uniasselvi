@@ -28,11 +28,15 @@ import {
 } from "@/components/ui/pagination";
 import { DashboardHeader } from "./_components/dashboard-header";
 import { ProductsTableSkeleton } from "./_components/products-table-skeleton";
+import DeleteDialog from "./_components/delete-dialog";
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedProductId, setSelectedProductId] = useState<number | null>(
+    null
+  );
   const [data, setData] = useState<Product[]>([]);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,28 +57,42 @@ export default function Dashboard() {
   };
 
   const handleProductCreated = (newProduct: Product) => {
-     if (newProduct && newProduct.id) {
-       console.log("Produto criado:", newProduct);
-       setData(prevData => {
-         const updatedData = [...prevData, newProduct];
-         console.log("Novo estado após adicionar produto:", updatedData);
-         return updatedData;
-       });
-     } else {
-       setData(prevData => {
-          const updatedData = [...prevData, newProduct];
-          console.log("Novo estado após adicionar produto:", updatedData);
-          return updatedData;
-       });
-       console.error("Produto indefinido recebido:", newProduct);
-     }
+    setData(prevData => [...prevData, newProduct]);
+  };
+
+  const handleOpenDeleteDialog = (id: number) => {
+    setSelectedProductId(id);
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDeleteDialog = () => {
+    setIsDialogOpen(false);
+    setSelectedProductId(null);
+  };
+
+  const handleDelete = async () => {
+    if (selectedProductId !== null) {
+      const response = await fetch(
+        `http://127.0.0.1:8000/api/produtos/${selectedProductId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.ok) {
+        setData(data.filter(item => item.id !== selectedProductId));
+        handleCloseDeleteDialog();
+      } else {
+        console.error("Erro ao deletar o produto");
+      }
+    }
   };
 
   return (
     <>
-      <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
-        <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
-          <div className="flex h-full max-h-screen flex-col gap-2">
+      <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr] grid-rows-1">
+        <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40 ">
+          <div className="flex h-full max-h-screen flex-col gap-2 ">
             <div className="flex h-[60px] items-center border-b px-6">
               <Link className="flex items-center gap-2 font-semibold" href="/">
                 <IoCodeSlash className="h-6 w-6" />
@@ -104,7 +122,7 @@ export default function Dashboard() {
                 </Link>
               </nav>
             </div>
-            <div className="mt-auto p-4">
+            <div className="mt-auto p-4 ">
               <Card>
                 <CardHeader className="pb-4">
                   <CardTitle>Novo Produto</CardTitle>
@@ -151,7 +169,11 @@ export default function Dashboard() {
                   </TableRow>
                 </TableHeader>
                 <Suspense fallback={<ProductsTableSkeleton />}>
-                  {data && data.length > 0 ? ( data.map( product => product && product.id && (
+                  {data && data.length > 0 ? (
+                    data.map(
+                      product =>
+                        product &&
+                        product.id && (
                           <ProductsTable
                             key={product.id}
                             title={product.title}
@@ -162,6 +184,9 @@ export default function Dashboard() {
                             onDelete={id => {
                               setData(data.filter(item => item.id !== id));
                             }}
+                            onOpenDeleteDialog={() =>
+                              handleOpenDeleteDialog(product.id)
+                            }
                           />
                         )
                     )
@@ -169,7 +194,6 @@ export default function Dashboard() {
                     <ProductsTableSkeleton />
                   )}
                 </Suspense>
-                
               </Table>
             </div>
             <Pagination>
@@ -203,7 +227,11 @@ export default function Dashboard() {
           onOpenChange={handleCloseModal}
           onProductCreated={handleProductCreated}
         />
-        
+        <DeleteDialog
+          isOpen={isDialogOpen}
+          onClose={handleCloseDeleteDialog}
+          onDelete={handleDelete}
+        />
       </div>
     </>
   );

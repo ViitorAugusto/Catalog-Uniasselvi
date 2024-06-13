@@ -1,18 +1,11 @@
+// ProductsTable.js
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import Image from "next/image";
 import { BiEditAlt } from "react-icons/bi";
 import { FaRegTrashAlt } from "react-icons/fa";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { createPortal } from "react-dom";
+
 interface ProductsTableProps {
   id: number;
   title: string;
@@ -20,33 +13,19 @@ interface ProductsTableProps {
   price: number;
   image: string;
   onDelete: (id: number) => void;
+  onOpenDeleteDialog: () => void;
 }
 
 export const ProductsTable = ({
-  id,
   description,
   image,
   price,
   title,
-  onDelete,
+  onOpenDeleteDialog,
 }: ProductsTableProps) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const baseURL = "http://127.0.0.1:8000/storage/";
   const imageUrl = image.startsWith("http") ? image : `${baseURL}${image}`;
 
-  const handleDelete = async () => {
-    const response = await fetch(`http://127.0.0.1:8000/api/produtos/${id}`, {
-      method: "DELETE",
-    });
-
-    if (response.ok) {
-      onDelete(id);
-      setIsDialogOpen(false);
-    } else {
-      console.error("Erro ao deletar o produto");
-    }
-  };
-   const dialogElement = document.getElementById("portal-root");
   return (
     <>
       <TableBody>
@@ -79,43 +58,13 @@ export const ProductsTable = ({
               <BiEditAlt className="h-4 w-4" />
               <span className="sr-only">Editar</span>
             </Button>
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => setIsDialogOpen(true)}
-            >
+            <Button size="icon" variant="outline" onClick={onOpenDeleteDialog}>
               <FaRegTrashAlt className="h-4 w-4" />
               <span className="sr-only">Deletar</span>
             </Button>
           </TableCell>
         </TableRow>
       </TableBody>
-
-      {dialogElement &&
-        createPortal(
-          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-            <DialogTrigger />
-            <DialogContent>
-              <DialogTitle>Confirmar Exclusão</DialogTitle>
-              <DialogDescription>
-                Tem certeza que deseja excluir este produto? Esta ação não pode
-                ser desfeita.
-              </DialogDescription>
-              <DialogFooter>
-                <Button
-                  variant="outline"
-                  onClick={() => setIsDialogOpen(false)}
-                >
-                  Cancelar
-                </Button>
-                <Button variant="destructive" onClick={handleDelete}>
-                  Excluir
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>,
-          dialogElement
-        )}
     </>
   );
 };
