@@ -35,7 +35,7 @@ export const CatalogProducts = ({ item }: CatalogProductsProps) => {
   };
 
   return (
-    <div className="h-80 rounded-lg dark:bg-gray-950 shadow-2xl  border border-gray-100">
+    <div className="h-80 rounded-lg dark:bg-gray-950 shadow-2xl  border border-gray-100 dark:border-none">
       <Link href={`/catalog/${item.slug}`}>
         <Image
           className="rounded-t-lg w-full h-48 object-cover"

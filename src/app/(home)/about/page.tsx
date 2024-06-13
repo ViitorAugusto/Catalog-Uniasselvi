@@ -38,7 +38,7 @@ export default function AboutPage() {
                   diversas tecnologias."
       />
 
-      <AboutProfile
+      {/* <AboutProfile
         styles={true}
         description="Olá, sou Luiz e minha paixão por tecnologia começou desde pequeno. Estudo programação há bastante tempo, sempre buscando aprender e me aperfeiçoar. Meu grande sonho é me tornar um desenvolvedor full stack, capaz de criar soluções completas e inovadoras. Estou sempre em busca de novos desafios e oportunidades para crescer na área de TI."
         name="Luiz"
@@ -71,7 +71,7 @@ export default function AboutPage() {
         skills="..."
         experience="..."
         education="..."
-      />
+      /> */}
     </section>
   );
 }
