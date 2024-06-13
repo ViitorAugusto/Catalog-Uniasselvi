@@ -13,7 +13,8 @@ interface CatalogProductsProps {
 }
 
 export const CatalogProducts = ({ item }: CatalogProductsProps) => {
-  const baseURL = "http://127.0.0.1:8000/storage/";
+    const baseURL = "http://127.0.0.1:8000/storage/";
+
   const imageUrl = item.image.startsWith("http")
     ? item.image
     : `${baseURL}${item.image}`;
@@ -35,7 +36,7 @@ export const CatalogProducts = ({ item }: CatalogProductsProps) => {
 
   return (
     <Link href={`/catalog/${item.slug}`}>
-      <div className="h-80 rounded-lg dark:bg-gray-950 shadow-xl">
+      <div className="h-80 rounded-lg dark:bg-gray-950 shadow-xl ">
         <Image
           className="rounded-t-lg w-full h-48 object-cover"
           src={imageUrl}

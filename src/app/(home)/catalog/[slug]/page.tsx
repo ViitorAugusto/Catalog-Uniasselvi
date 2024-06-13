@@ -12,15 +12,9 @@ const DetailsProductsPage = async ({ params }: Props) => {
   console.log("Product:", product);
 
   // Verifique se 'product' e 'product.images' estão definidos
-  const baseURL = "http://localhost:8000/storage/";
+  const baseURL = "http://127.0.0.1:8000/storage/";
   const imagePaths =
-    product && product.images
-      ? product.images.map(image =>
-          image.path.startsWith("/") || image.path.startsWith("http")
-            ? image.path
-            : `${baseURL}${image.path}`
-        )
-      : [];
+    product && product.images ? product.images.map(image => image.path.startsWith("/") || image.path.startsWith("http")? image.path : `${baseURL}${image.path}` ) : [];
 
   return (
     <>

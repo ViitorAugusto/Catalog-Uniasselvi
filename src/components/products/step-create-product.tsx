@@ -2,13 +2,15 @@ import { useProductsStore } from "@/context/products-store";
 import { Button } from "../ui/button";
 import { Dispatch, SetStateAction } from "react";
 import { ProductSteps } from "@/types/products-steps";
+import { Product } from "@/types/product";
 
 type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
   onClose: () => void;
+  onProductCreated?: (newProduct: Product) => void;
 };
 
-export const StepCreateProduct = ({ setStep, onClose }: Props) => {
+export const StepCreateProduct = ({ setStep, onClose, onProductCreated }: Props) => {
   const { infoProducts, images, mainImage } = useProductsStore(state => state);
   console.log(infoProducts);
   console.log(images);
@@ -45,9 +47,9 @@ export const StepCreateProduct = ({ setStep, onClose }: Props) => {
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(JSON.stringify(errorData));
-      }
-      const data = await response.json();
-      console.log(data);
+      } 
+      const newProduct = (await response.json()) as Product;
+      onProductCreated?.(newProduct); 
       onClose();
     } catch (error) {
       console.error("Erro ao criar produto:", error);

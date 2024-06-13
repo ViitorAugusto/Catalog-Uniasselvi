@@ -31,7 +31,7 @@ import { ProductsTableSkeleton } from "./_components/products-table-skeleton";
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [data, setData] = useState<Product[] | null>(null);
+  const [data, setData] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +50,11 @@ export default function Dashboard() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  const handleProductCreated = (newProduct: Product) => {
+    setData(prevData => (prevData ? [...prevData, newProduct] : [newProduct]));
+  };
+
 
   return (
     <>
@@ -178,7 +183,11 @@ export default function Dashboard() {
             </Pagination>
           </main>
         </div>
-        <ProductsDialog open={isModalOpen} onOpenChange={handleCloseModal} />
+        <ProductsDialog
+          open={isModalOpen}
+          onOpenChange={handleCloseModal}
+          onProductCreated={handleProductCreated}
+        />
       </div>
     </>
   );
