@@ -11,42 +11,56 @@ const Catalog = async () => {
     <>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 py-28 min-h-screen ">
         <div className="p-6 rounded-lg dark:bg-gray-900">
-          <h2 className="text-lg font-semibold mb-4">Categories</h2>
+          <h2 className="text-lg font-semibold mb-4">Categorias</h2>
           <div className="grid gap-2">
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              Electronics
+              Eletrônicos
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              Clothing
+              Hardware
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              Home & Garden
+              Periféricos
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              Beauty & Personal Care
+              Computadores
             </Link>
             <Link
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              Sports & Outdoors
+              Games
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Celular & Smartphone
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              prefetch={false}
+            >
+              Espaço Gamer
             </Link>
           </div>
         </div>

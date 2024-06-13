@@ -6,7 +6,6 @@ export const getProductLaravel = async (): Promise<Product[]> => {
       revalidate: 2, // 2 seconds
     },
   });
-  console.log("response", response);
   return await response.json();
 };
 
@@ -19,6 +18,5 @@ export const getProductBySlug = async (slug: string): Promise<Product> => {
       },
     }
     );
-  console.log("response", response.body);
   return await response.json();
 };

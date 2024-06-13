@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { JSX, SVGProps } from "react";
 
@@ -12,18 +11,13 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link className="hover:text-gray-200" href="#">
-                    About
+                  <Link className="hover:text-gray-200" href="/about">
+                    Sobre
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:text-gray-200" href="#">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link className="hover:text-gray-200" href="#">
-                    Careers
+                  <Link className="hover:text-gray-200" href="/contact">
+                    Contatos
                   </Link>
                 </li>
               </ul>
@@ -32,18 +26,18 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-4">Products</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link className="hover:text-gray-200" href="#">
-                    Clothing
+                  <Link className="hover:text-gray-200" href="/catalog">
+                    Espaço Gamer
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:text-gray-200" href="#">
-                    Electronics
+                  <Link className="hover:text-gray-200" href="/catalog">
+                    Eletrônicos
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:text-gray-200" href="#">
-                    Home & Garden
+                  <Link className="hover:text-gray-200" href="/catalog">
+                    Hardware
                   </Link>
                 </li>
               </ul>
@@ -58,18 +52,18 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link className="hover:text-gray-200" href="#">
-                    Shipping & Returns
+                    Envios e Devoluções
                   </Link>
                 </li>
                 <li>
                   <Link className="hover:text-gray-200" href="#">
-                    Customer Service
+                    Atendimento ao Cliente
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
+              <h4 className="text-lg font-semibold mb-4">Siga-nos</h4>
               <div className="flex gap-4">
                 <Link className="hover:text-gray-200" href="#">
                   <FacebookIcon className="h-6 w-6" />
@@ -84,7 +78,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <p>© 2024 Acme Store. All rights reserved.</p>
+            <p>© 2024 NexusTechStore. All rights reserved.</p>
           </div>
         </div>
       </footer>

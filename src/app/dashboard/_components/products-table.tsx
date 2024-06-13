@@ -12,7 +12,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-
+import { createPortal } from "react-dom";
 interface ProductsTableProps {
   id: number;
   title: string;
@@ -46,7 +46,7 @@ export const ProductsTable = ({
       console.error("Erro ao deletar o produto");
     }
   };
-
+   const dialogElement = document.getElementById("portal-root");
   return (
     <>
       <TableBody>
@@ -91,24 +91,31 @@ export const ProductsTable = ({
         </TableRow>
       </TableBody>
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogTrigger />
-        <DialogContent>
-          <DialogTitle>Confirmar Exclusão</DialogTitle>
-          <DialogDescription>
-            Tem certeza que deseja excluir este produto? Esta ação não pode ser
-            desfeita.
-          </DialogDescription>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-              Cancelar
-            </Button>
-            <Button variant="destructive" onClick={handleDelete}>
-              Excluir
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      {dialogElement &&
+        createPortal(
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogTrigger />
+            <DialogContent>
+              <DialogTitle>Confirmar Exclusão</DialogTitle>
+              <DialogDescription>
+                Tem certeza que deseja excluir este produto? Esta ação não pode
+                ser desfeita.
+              </DialogDescription>
+              <DialogFooter>
+                <Button
+                  variant="outline"
+                  onClick={() => setIsDialogOpen(false)}
+                >
+                  Cancelar
+                </Button>
+                <Button variant="destructive" onClick={handleDelete}>
+                  Excluir
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>,
+          dialogElement
+        )}
     </>
   );
 };

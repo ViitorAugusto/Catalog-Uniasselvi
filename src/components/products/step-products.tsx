@@ -172,10 +172,13 @@ export const StepProducts = ({ setStep }: Props) => {
                     <SelectValue placeholder="Categoria" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="eletronics">Eletrônicos</SelectItem>
-                    <SelectItem value="clothing">Roupas</SelectItem>
-                    <SelectItem value="books">Livros</SelectItem>
-                    <SelectItem value="games">Jogos</SelectItem>
+                    <SelectItem value="eletronicos">Eletrônicos</SelectItem>
+                    <SelectItem value="hardware">Hardware</SelectItem>
+                    <SelectItem value="perifericos">Periféricos</SelectItem>
+                    <SelectItem value="computadores">Computadores</SelectItem>
+                    <SelectItem value="games">Games</SelectItem>
+                    <SelectItem value="cell">Celular & Smartphone</SelectItem>
+                    <SelectItem value="gamer">Espaço Gamer</SelectItem>
                   </SelectContent>
                 </Select>
               </FormControl>

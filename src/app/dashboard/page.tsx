@@ -27,11 +27,12 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { DashboardHeader } from "./_components/dashboard-header";
-import { ProductsTableSkeleton } from "./_components/products-table-skeleton"; 
+import { ProductsTableSkeleton } from "./_components/products-table-skeleton";
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState<Product[]>([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,9 +53,22 @@ export default function Dashboard() {
   };
 
   const handleProductCreated = (newProduct: Product) => {
-    setData(prevData => (prevData ? [...prevData, newProduct] : [newProduct]));
+     if (newProduct && newProduct.id) {
+       console.log("Produto criado:", newProduct);
+       setData(prevData => {
+         const updatedData = [...prevData, newProduct];
+         console.log("Novo estado após adicionar produto:", updatedData);
+         return updatedData;
+       });
+     } else {
+       setData(prevData => {
+          const updatedData = [...prevData, newProduct];
+          console.log("Novo estado após adicionar produto:", updatedData);
+          return updatedData;
+       });
+       console.error("Produto indefinido recebido:", newProduct);
+     }
   };
-
 
   return (
     <>
@@ -137,24 +151,25 @@ export default function Dashboard() {
                   </TableRow>
                 </TableHeader>
                 <Suspense fallback={<ProductsTableSkeleton />}>
-                  {data ? (
-                    data.map(product => (
-                      <ProductsTable
-                        key={product.id}
-                        title={product.title}
-                        description={product.description}
-                        price={product.price}
-                        image={product.image}
-                        id={product.id}
-                        onDelete={id => {
-                          setData(data.filter(item => item.id !== id));
-                        }}
-                      />
-                    ))
+                  {data && data.length > 0 ? ( data.map( product => product && product.id && (
+                          <ProductsTable
+                            key={product.id}
+                            title={product.title}
+                            description={product.description}
+                            price={product.price}
+                            image={product.image}
+                            id={product.id}
+                            onDelete={id => {
+                              setData(data.filter(item => item.id !== id));
+                            }}
+                          />
+                        )
+                    )
                   ) : (
                     <ProductsTableSkeleton />
                   )}
                 </Suspense>
+                
               </Table>
             </div>
             <Pagination>
@@ -188,6 +203,7 @@ export default function Dashboard() {
           onOpenChange={handleCloseModal}
           onProductCreated={handleProductCreated}
         />
+        
       </div>
     </>
   );

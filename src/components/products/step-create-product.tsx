@@ -12,10 +12,6 @@ type Props = {
 
 export const StepCreateProduct = ({ setStep, onClose, onProductCreated }: Props) => {
   const { infoProducts, images, mainImage } = useProductsStore(state => state);
-  console.log(infoProducts);
-  console.log(images);
-  console.log(mainImage);
-
   const createProduct = async () => {
     if (!images.length) {
       console.error("Erro: Nenhuma imagem foi selecionada.");
@@ -49,7 +45,7 @@ export const StepCreateProduct = ({ setStep, onClose, onProductCreated }: Props)
         throw new Error(JSON.stringify(errorData));
       } 
       const newProduct = (await response.json()) as Product;
-      onProductCreated?.(newProduct); 
+       onProductCreated?.(newProduct); 
       onClose();
     } catch (error) {
       console.error("Erro ao criar produto:", error);
