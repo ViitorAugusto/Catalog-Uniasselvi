@@ -12,13 +12,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ToastAction } from "@/components/ui/toast";
 import { toast } from "@/components/ui/use-toast";
+import { handleCellInput } from "@/types/cell-input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import z from "zod";
+import CircleLoader from "react-spinners/CircleLoader";
+
 
 const formSchema = z.object({
-  nome: z.string().min(3, "Nome muito curto"),
-  email: z.string().email("Email inválido"),
+  nome: z.string().min(1, "Nome muito curto"),
+  email: z.string().min(1, "E-mail é obrigatório").email("Email inválido"),
   cell: z.string().min(11, "Celular inválido"),
   mensagem: z.string().min(10, "Mensagem deve ter no mínimo 10 caracteres"),
 });
@@ -74,6 +77,7 @@ export const ContactForm = () => {
     }
   };
 
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
@@ -110,7 +114,11 @@ export const ContactForm = () => {
             <FormItem>
               <FormLabel>Celular</FormLabel>
               <FormControl>
-                <Input placeholder="Digite seu celular" {...field} />
+                <Input
+                  placeholder="(11) 99999-9999"
+                  {...field}
+                  onInput={handleCellInput}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -131,8 +139,38 @@ export const ContactForm = () => {
         />
 
         <div className="pt-4">
-          <Button type="submit" className="w-full h-10 uppercase font-bold">
-            Enviar
+          <Button
+            type="submit"
+            className="w-full h-10 uppercase font-bold"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? (
+              <div className="flex items-center justify-center">
+                <svg
+                  className="w-5 h-5 mr-3 text-white animate-spin"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                  ></path>
+                </svg>
+                Enviando...
+              </div>
+            ) : (
+              "Enviar"
+            )}
           </Button>
         </div>
       </form>

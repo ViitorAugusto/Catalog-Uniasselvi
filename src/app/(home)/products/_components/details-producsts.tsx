@@ -10,30 +10,30 @@ import {
   Select,
 } from "@/components/ui/select";
 import Image from "next/image";
-import { HeartFilledIcon } from "@radix-ui/react-icons";
 import { FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { Specifications } from "./specifications";
 import { CustomerReviews } from "./customer-reviews";
-interface DetailsProducstsProps {
+
+interface DetailsProductsProps {
   title: string;
   description: string;
-  price: number;
+  price: number; // O preço deve ser passado em centavos
   img: string;
   moreDetails: string;
   images: string[];
 }
 
-export default function DetailsProducsts({
+export default function DetailsProducts({
   title,
   description,
   moreDetails,
   price,
   img,
   images,
-}: DetailsProducstsProps) {
+}: DetailsProductsProps) {
   const defaultImage = "/placeholder.svg";
-  const pixDiscount = 25; // 19% de desconto
+  const pixDiscount = 25; // 25% de desconto
   const installmentDiscount = 15; // 15% de desconto
   const originalPrice = price / (1 - pixDiscount / 100);
   const installmentPrice = price / (1 - installmentDiscount / 100);
@@ -59,7 +59,7 @@ export default function DetailsProducsts({
               />
               <div className="grid grid-cols-3 gap-4">
                 <Image
-                  alt="Producto"
+                  alt="Produto"
                   className="object-cover w-full rounded-lg"
                   height={200}
                   src={images[0] || defaultImage}
@@ -72,7 +72,7 @@ export default function DetailsProducsts({
                   priority
                 />
                 <Image
-                  alt="Producto"
+                  alt="Produto"
                   className="object-cover w-full rounded-lg"
                   height={200}
                   src={images[1] || defaultImage}
@@ -85,7 +85,7 @@ export default function DetailsProducsts({
                   priority
                 />
                 <Image
-                  alt="Producto"
+                  alt="Produto"
                   className="object-cover w-full rounded-lg"
                   height={200}
                   src={images[2] || defaultImage}
@@ -99,10 +99,9 @@ export default function DetailsProducsts({
                 />
               </div>
             </div>
-            <div className="flex flex-col justify-center ">
+            <div className="flex flex-col justify-center">
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
                 {title}
-
                 <div className="flex items-center gap-2 mt-2">
                   <StarIcon className="w-5 h-5 fill-primary" />
                   <StarIcon className="w-5 h-5 fill-primary" />
@@ -123,7 +122,7 @@ export default function DetailsProducsts({
 
               <div className="mt-8 grid gap-4">
                 <div className="grid gap-2">
-                  <Label className="text-base" htmlFor="cantidad">
+                  <Label className="text-base" htmlFor="quantidade">
                     Quantidade
                   </Label>
                   <Select defaultValue="1">
@@ -148,16 +147,16 @@ export default function DetailsProducsts({
                   </Button>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold">
-                    {price.toLocaleString("pt-BR", {
+                  <div className="text-3xl font-bold ">
+                    {new Intl.NumberFormat("pt-BR", {
                       style: "currency",
                       currency: "BRL",
-                    })}{" "}
-                    <span className="line-through text-gray-500 dark:text-gray-400 text-lg">
-                      {originalPrice.toLocaleString("pt-BR", {
+                    }).format(price / 100)}
+                    <span className="line-through text-gray-500 dark:text-gray-400 text-lg mx-2">
+                      {new Intl.NumberFormat("pt-BR", {
                         style: "currency",
                         currency: "BRL",
-                      })}
+                      }).format(originalPrice / 100)}
                     </span>{" "}
                     <span className="text-emerald-700 text-base">
                       {pixDiscount}% off
@@ -165,16 +164,16 @@ export default function DetailsProducsts({
                   </div>
                   <div className="text-base text-gray-500 dark:text-gray-400">
                     ou{" "}
-                    {installmentPrice.toLocaleString("pt-BR", {
+                    {new Intl.NumberFormat("pt-BR", {
                       style: "currency",
                       currency: "BRL",
-                    })}{" "}
+                    }).format(installmentPrice / 100)}{" "}
                     em até 12x s/ juros de{" "}
-                    <span className=" text-gray-500 dark:text-gray-400 text-lg font-bold">
-                      {(installmentPrice / 12).toLocaleString("pt-BR", {
+                    <span className="text-gray-500 dark:text-gray-400 text-lg font-bold">
+                      {new Intl.NumberFormat("pt-BR", {
                         style: "currency",
                         currency: "BRL",
-                      })}{" "}
+                      }).format(installmentPrice / 12 / 100)}{" "}
                     </span>
                     <span className="text-emerald-700 text-base font-bold">
                       {installmentDiscount}% off
@@ -187,9 +186,8 @@ export default function DetailsProducsts({
         </section>
       </main>
       <div className="container mx-auto my-10">
-        {" "}
-       <Specifications />
-       <CustomerReviews />
+        <Specifications />
+        <CustomerReviews />
       </div>
     </div>
   );

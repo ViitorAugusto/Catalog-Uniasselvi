@@ -25,7 +25,7 @@ export const ProductsTable = ({
 }: ProductsTableProps) => {
   const baseURL = "http://127.0.0.1:8000/storage/";
   const imageUrl = image.startsWith("http") ? image : `${baseURL}${image}`;
-
+  const formattedPrice = price / 100;
   return (
     <>
       <TableBody>
@@ -51,7 +51,7 @@ export const ProductsTable = ({
             {new Intl.NumberFormat("pt-BR", {
               style: "currency",
               currency: "BRL",
-            }).format(price)}
+            }).format(formattedPrice)}
           </TableCell>
           <TableCell className="flex items-center gap-2">
             <Button size="icon" variant="outline">

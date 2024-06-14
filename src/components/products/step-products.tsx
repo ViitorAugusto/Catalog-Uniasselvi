@@ -2,7 +2,7 @@ import { useProductsStore } from "@/context/products-store";
 import { ProductSteps } from "@/types/products-steps";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction, useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
   Form,
@@ -12,8 +12,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { generateSlug } from "@/utils/generateSlug";
 import {
   Select,
@@ -21,9 +21,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { Switch } from "../ui/switch";
-import { Label } from "../ui/label";
+} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
@@ -32,8 +33,8 @@ type Props = {
 const formSchema = z.object({
   title: z.string().min(3, "Nome muito curto"),
   price: z.preprocess(
-    val => Number(val),
-    z.number().min(1, "Preço muito baixo")
+    val => parseFloat((val as string).replace(/[^\d.-]/g, "")), 
+    z.number().min(1, "Preço muito baixo") 
   ),
   description: z.string().min(3, "Descrição muito curta"),
   moreDetails: z
@@ -52,7 +53,7 @@ export const StepProducts = ({ setStep }: Props) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: infoProducts.title,
-      price: infoProducts.price,
+      price: infoProducts.price / 100,
       description: infoProducts.description,
       moreDetails: infoProducts.moreDetails,
       category: infoProducts.category,
@@ -77,23 +78,40 @@ export const StepProducts = ({ setStep }: Props) => {
     }
   };
 
-  const onSubmit = async (value: z.infer<typeof formSchema>) => {
-    await checkTitleUnique(value.title);
+const handlePriceInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+  let value = event.target.value;
+  value = value.replace(/\D/g, "");
+  if (value === "") {
+    event.target.value = "";
+    form.setValue("price", 0); 
+    return;
+  }
+  const formattedValue = (parseInt(value) / 100).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+  event.target.value = formattedValue;
+  form.setValue("price", parseInt(value)); 
+};
+const onSubmit = async (value: z.infer<typeof formSchema>) => {
+  await checkTitleUnique(value.title);
 
-    if (!isTitleUnique) {
-      form.setError("title", { type: "manual", message: "Título já existe" });
-      return;
-    }
+  if (!isTitleUnique) {
+    form.setError("title", { type: "manual", message: "Título já existe" });
+    return;
+  }
 
-    const slug = generateSlug(value.title);
-    const payload = {
-      ...value,
-      slug,
-      featured: value.featured === 1 ? true : false,
-    };
-    setInfoProducts(payload);
-    setStep("imagesProducts");
+  const slug = generateSlug(value.title);
+  const payload = {
+    ...value,
+    price: Math.round(value.price), 
+    slug,
+    featured: value.featured === 1 ? true : false,
   };
+  setInfoProducts(payload);
+  setStep("imagesProducts");
+};
+
 
   return (
     <Form {...form}>
@@ -125,7 +143,20 @@ export const StepProducts = ({ setStep }: Props) => {
             <FormItem>
               <FormLabel>Preço</FormLabel>
               <FormControl>
-                <Input {...field} placeholder="100" type="number" />
+                <Input
+                  {...field}
+                  placeholder="R$ 0,00"
+                  onInput={handlePriceInput}
+                  type="text"
+                  value={
+                    field.value === 0
+                      ? ""
+                      : field.value.toLocaleString("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                        })
+                  }
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -151,7 +182,10 @@ export const StepProducts = ({ setStep }: Props) => {
             <FormItem>
               <FormLabel>Detalhes</FormLabel>
               <FormControl>
-                <Input placeholder="Digite os detalhes do produto" {...field} />
+                <Textarea
+                  placeholder="Digite os detalhes do produto"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -190,14 +224,14 @@ export const StepProducts = ({ setStep }: Props) => {
           control={form.control}
           name="featured"
           render={({ field }) => (
-            <>
+            <div className=" flex justify-start items-center space-x-4">
               <Switch
                 checked={field.value === 1}
                 onCheckedChange={checked => field.onChange(checked ? 1 : 0)}
                 id="featured"
               />
               <Label htmlFor="featured">Destaque</Label>
-            </>
+            </div>
           )}
         />
         <div className="flex justify-end mt-4">
