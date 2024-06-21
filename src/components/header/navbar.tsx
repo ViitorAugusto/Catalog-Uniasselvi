@@ -5,6 +5,9 @@ import { ModeToggle } from "../button-theme";
 import { CartProducts } from "../cart/cart-products";
 import { IoCodeSlash, IoMenuOutline } from "react-icons/io5";
 import { DrawerHeader } from "./drawer-header";
+import { Button } from "@/components/ui/button";
+import { FaUser } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
 
 export default function NavBar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -47,6 +50,12 @@ export default function NavBar() {
               href="/contact"
             >
               Contato
+            </Link>
+
+            <Link href='/auth/sign-in'>
+              <Button size="icon" variant="secondary">
+                <FiUser />
+              </Button>
             </Link>
             <CartProducts />
             <ModeToggle />

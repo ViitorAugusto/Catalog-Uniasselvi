@@ -23,7 +23,7 @@ export const ProductsTable = ({
   title,
   onOpenDeleteDialog,
 }: ProductsTableProps) => {
-  const baseURL = "http://127.0.0.1:8000/storage/";
+  const baseURL = "http://192.168.20.149:8000/storage/";
   const imageUrl = image.startsWith("http") ? image : `${baseURL}${image}`;
   const formattedPrice = price / 100;
   return (
@@ -54,10 +54,10 @@ export const ProductsTable = ({
             }).format(formattedPrice)}
           </TableCell>
           <TableCell className="flex items-center gap-2">
-            <Button size="icon" variant="outline">
+            {/* <Button size="icon" variant="outline">
               <BiEditAlt className="h-4 w-4" />
               <span className="sr-only">Editar</span>
-            </Button>
+            </Button> */}
             <Button size="icon" variant="outline" onClick={onOpenDeleteDialog}>
               <FaRegTrashAlt className="h-4 w-4" />
               <span className="sr-only">Deletar</span>

@@ -14,7 +14,7 @@ interface CatalogProductsProps {
 
 export const CatalogProducts = ({ item }: CatalogProductsProps) => {
   const baseURL = "http://127.0.0.1:8000/storage/";
-
+  const formattedPrice = item.price / 100;
   const imageUrl = item.image.startsWith("http")
     ? item.image
     : `${baseURL}${item.image}`;
@@ -48,7 +48,13 @@ export const CatalogProducts = ({ item }: CatalogProductsProps) => {
         />
         <div className="p-4 flex flex-col gap-2">
           <h3 className="font-medium text-base truncate">{item.title}</h3>
-          <p className="text-gray-500 text-sm">${item.price}</p>
+          <p className="text-gray-500 text-sm">
+            {" "}
+            {new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(formattedPrice)}
+          </p>
         </div>
       </Link>
       <div className="px-4">

@@ -10,7 +10,11 @@ type Props = {
   onProductCreated?: (newProduct: Product) => void;
 };
 
-export const StepCreateProduct = ({ setStep, onClose, onProductCreated }: Props) => {
+export const StepCreateProduct = ({
+  setStep,
+  onClose,
+  onProductCreated,
+}: Props) => {
   const { infoProducts, images, mainImage } = useProductsStore(state => state);
   const createProduct = async () => {
     if (!images.length) {
@@ -35,17 +39,24 @@ export const StepCreateProduct = ({ setStep, onClose, onProductCreated }: Props)
     formData.append("featured", infoProducts.featured ? "1" : "0");
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/produtos/criar", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "http://192.168.20.149:8000/api/products/new-product",
+        {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+
+          },
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(JSON.stringify(errorData));
-      } 
+      }
       const newProduct = (await response.json()) as Product;
-       onProductCreated?.(newProduct); 
+      onProductCreated?.(newProduct);
       onClose();
     } catch (error) {
       console.error("Erro ao criar produto:", error);

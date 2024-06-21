@@ -40,7 +40,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:8000/api/produtos");
+      const res = await fetch("http://192.168.20.149:8000/api/products");
       const result = await res.json();
       setData(result);
     };
@@ -73,7 +73,7 @@ export default function Dashboard() {
   const handleDelete = async () => {
     if (selectedProductId !== null) {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/produtos/${selectedProductId}`,
+        `http://192.168.20.149:8000/api/products/${selectedProductId}`,
         {
           method: "DELETE",
         }

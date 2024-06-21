@@ -6,6 +6,7 @@ const nextConfig = {
       "img.freepik.com",
       "avatars.githubusercontent.com",
       "localhost",
+      "192.168.20.149",
     ],
   },
 };
