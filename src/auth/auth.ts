@@ -10,16 +10,15 @@ export function isAuthenticated() {
 
 export async function auth() {
   const token = cookies().get("access_token")?.value;
-  console.log("token", token);
   if (!token) {
-    redirect("/sign-in");
-  }
-  try {
-    const { user } = await getProfile();
-    return { user };
-  } catch (err) {
-    console.error(err);
+    return null; // Retorna null imediatamente se não houver token
   }
 
-  redirect("/api/auth/sign-out");
+  try {
+    const user = await getProfile();
+    return user; // Retorna o perfil do usuário ou null se a API falhar
+  } catch (err) {
+    console.error("Erro durante a obtenção do perfil do usuário:", err);
+    return null;
+  }
 }

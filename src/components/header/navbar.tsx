@@ -6,15 +6,24 @@ import { CartProducts } from "../cart/cart-products";
 import { IoCodeSlash, IoMenuOutline } from "react-icons/io5";
 import { DrawerHeader } from "./drawer-header";
 import { Button } from "@/components/ui/button";
-import { FaUser } from "react-icons/fa";
-import { FiUser } from "react-icons/fi";
+import { FiLogOut, FiUser } from "react-icons/fi";
 
-export default function NavBar() {
+interface NavProps {
+  name?: string;
+}
+
+export default function NavBar({ name }: NavProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
+
+  const handleLogout = async () => {
+    await fetch("/api/auth/sign-out", {
+      method: "GET",
+    });
+  }
 
   return (
     <>
@@ -51,14 +60,25 @@ export default function NavBar() {
             >
               Contato
             </Link>
-
-            <Link href='/auth/sign-in'>
-              <Button size="icon" variant="secondary">
-                <FiUser />
-              </Button>
-            </Link>
             <CartProducts />
             <ModeToggle />
+            <Link href={name ? "/profile" : "/auth/sign-in"}>
+              <div className="flex justify-center items-center flex-col ">
+                <FiUser className="size-5" />
+                <small className="text-xs">
+                  {name ? `Olá ${name.split(" ")[0]}` : "Entrar "}
+                </small>
+              </div>
+            </Link>
+            <div
+              className="flex justify-center items-center flex-col"
+              onClick={handleLogout}
+            >
+              <Link href="/">
+                <FiLogOut className=" size-4" />
+                Sair
+              </Link>
+            </div>
           </nav>
           <button
             className="rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-950 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:ring-gray-300 md:hidden"
@@ -72,7 +92,11 @@ export default function NavBar() {
         </div>
       </header>
 
-      <DrawerHeader isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
+      <DrawerHeader
+        isOpen={isDrawerOpen}
+        toggleDrawer={toggleDrawer}
+        name={name ?? ""}
+      />
     </>
   );
 }
