@@ -2,7 +2,7 @@ interface GetProfileResponse {
   id: number;
   name: string;
   email: string;
-  is_admin: string;
+  is_admin: boolean;
 }
 
 import { api } from "./api-client";

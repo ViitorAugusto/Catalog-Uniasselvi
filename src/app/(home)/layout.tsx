@@ -8,6 +8,8 @@ export default async function HomeLayout({
   children: React.ReactNode;
 }>) {
   const user = await auth();
+
+  
   return (
     <div>
       <NavBar name={user?.name ?? ''}/>
