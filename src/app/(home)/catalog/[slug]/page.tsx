@@ -1,5 +1,5 @@
-import { getProductBySlug } from "@/services/getProductsLaravel";
 import DetailsProducsts from "../../products/_components/details-producsts";
+import { getProductSlug } from "@/http/get-product-slug";
 
 interface Props {
   params: {
@@ -8,8 +8,7 @@ interface Props {
 }
 
 const DetailsProductsPage = async ({ params }: Props) => {
-  const product = await getProductBySlug(params.slug);
-
+  const product = await getProductSlug(params.slug);
   const baseURL = "http://127.0.0.1:8000/storage/";
   const imagePaths =
     product && product.images

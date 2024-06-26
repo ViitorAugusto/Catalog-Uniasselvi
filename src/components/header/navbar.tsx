@@ -18,13 +18,6 @@ export default function NavBar({ name }: NavProps) {
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
-
-  const handleLogout = async () => {
-    await fetch("/api/auth/sign-out", {
-      method: "GET",
-    });
-  }
-
   return (
     <>
       <header className="fixed top-0 left-0 w-full bg-white shadow-lg dark:bg-gray-950 z-50 h-16">
@@ -71,10 +64,9 @@ export default function NavBar({ name }: NavProps) {
               </div>
             </Link>
             <div
-              className="flex justify-center items-center flex-col"
-              onClick={handleLogout}
+              className="hidden md:flex justify-center items-center flex-col"
             >
-              <Link href="/">
+              <Link href="/api/auth/sign-out">
                 <FiLogOut className=" size-4" />
                 Sair
               </Link>

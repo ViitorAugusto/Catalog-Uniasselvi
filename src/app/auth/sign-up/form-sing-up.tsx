@@ -11,6 +11,7 @@ import { LuLoader2 } from "react-icons/lu";
 import { useFormState } from "@/hook/use-form-state";
 import { useState } from "react";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
+
 export function SignUpForm() {
   const router = useRouter();
 
@@ -43,7 +44,6 @@ export function SignUpForm() {
         <div className="space-y-1">
           <Label htmlFor="name">Nome</Label>
           <Input name="name" type="name" id="name" />
-
           {errors?.name && (
             <p className="text-xs font-medium text-red-500 dark:text-red-400">
               {errors.name[0]}
@@ -54,8 +54,7 @@ export function SignUpForm() {
         <div className="space-y-1">
           <Label htmlFor="email">E-mail</Label>
           <Input name="email" type="email" id="email" />
-
-          {errors?.passemailword && (
+          {errors?.email && (
             <p className="text-xs font-medium text-red-500 dark:text-red-400">
               {errors.email[0]}
             </p>

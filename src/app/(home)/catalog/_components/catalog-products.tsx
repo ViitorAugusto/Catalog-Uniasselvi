@@ -18,7 +18,7 @@ export const CatalogProducts = ({ item }: CatalogProductsProps) => {
   const imageUrl = item.image.startsWith("http")
     ? item.image
     : `${baseURL}${item.image}`;
-
+  console.log(item);
   const { upsertCartItem } = useCartStore(state => state);
 
   const handleAddToCart = () => {

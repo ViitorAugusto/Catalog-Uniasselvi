@@ -1,5 +1,5 @@
 "use server";
-
+import { checkEmail } from "@/http/check-email";
 import { signUp } from "@/http/sign-up";
 import { HTTPError } from "ky";
 import { z } from "zod";
@@ -33,11 +33,22 @@ export async function signUpAction(data: FormData) {
   const { email, password, name } = result.data;
 
   try {
+    const emailCheck = await checkEmail(email);
+
+    if (emailCheck.exists) {
+      return {
+        success: false,
+        message: "E-mail already in use.",
+        errors: null,
+      };
+    }
+
     await signUp({
       name,
       email,
       password,
     });
+
     console.log("Sign up successful", email, password);
   } catch (err) {
     if (err instanceof HTTPError) {
@@ -54,6 +65,5 @@ export async function signUpAction(data: FormData) {
       errors: null,
     };
   }
-
   return { success: true, message: null, errors: null };
 }

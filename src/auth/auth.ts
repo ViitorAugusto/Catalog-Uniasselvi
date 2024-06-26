@@ -6,7 +6,6 @@ export function isAuthenticated() {
   return !!token;
 }
 
-
 export async function auth() {
   const token = cookies().get("access_token")?.value;
   if (!token) {
