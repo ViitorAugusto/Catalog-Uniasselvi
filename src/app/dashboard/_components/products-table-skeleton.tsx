@@ -3,7 +3,7 @@ import { TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 export const ProductsTableSkeleton = () => {
   return (
-    <TableBody>
+    <>
       {Array.from({ length: 7 }).map((_, index) => (
         <TableRow key={index}>
           <TableCell>
@@ -24,6 +24,6 @@ export const ProductsTableSkeleton = () => {
           </TableCell>
         </TableRow>
       ))}
-    </TableBody>
+    </>
   );
 };

@@ -7,7 +7,16 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-const DeleteDialog = ({ isOpen, onClose, onDelete }: any) => {
+
+const DeleteDialog = ({
+  isOpen,
+  onClose,
+  onDelete,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  onDelete: () => void;
+}) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogTrigger />

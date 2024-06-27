@@ -13,7 +13,7 @@ export async function signUp({
   email,
   password,
 }: SignUpRequest): Promise<SignUpResponse> {
-  await api.post("users", {
+  await api.post("register", {
     json: {
       name,
       email,

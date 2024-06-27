@@ -1,19 +1,6 @@
 import { auth, isAuthenticated } from "@/auth/auth";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import { FiPackage } from "react-icons/fi";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { IoCodeSlash } from "react-icons/io5";
-import { RiLineChartLine } from "react-icons/ri";
-import { DashboardHeader } from "./_components/dashboard-header";
+import HomeDashboard from "./_components/home-dashboard";
 
 export default async function DashboardLayout({
   children,
@@ -27,9 +14,5 @@ export default async function DashboardLayout({
   if (!user || !user.is_admin) {
     redirect("/");
   }
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <HomeDashboard> {children}</HomeDashboard>;
 }

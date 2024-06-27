@@ -3,6 +3,8 @@ import { Button } from "../ui/button";
 import { Dispatch, SetStateAction } from "react";
 import { ProductSteps } from "@/types/products-steps";
 import { Product } from "@/types/product";
+import { toast } from "../ui/use-toast";
+import { api } from "@/http/api-client";
 
 type Props = {
   setStep: Dispatch<SetStateAction<ProductSteps>>;
@@ -16,6 +18,7 @@ export const StepCreateProduct = ({
   onProductCreated,
 }: Props) => {
   const { infoProducts, images, mainImage } = useProductsStore(state => state);
+
   const createProduct = async () => {
     if (!images.length) {
       console.error("Erro: Nenhuma imagem foi selecionada.");
@@ -29,7 +32,6 @@ export const StepCreateProduct = ({
     if (mainImage) {
       formData.append("mainImage", mainImage);
     }
-
     formData.append("title", infoProducts.title);
     formData.append("slug", infoProducts.slug);
     formData.append("price", infoProducts.price.toString());
@@ -39,25 +41,20 @@ export const StepCreateProduct = ({
     formData.append("featured", infoProducts.featured ? "1" : "0");
 
     try {
-      const response = await fetch(
-        "http://192.168.20.149:8000/api/products/new-product",
-        {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
+      const response = await api.post("products/new-product", {
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
-          },
-          body: formData,
-        }
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(JSON.stringify(errorData));
+      if (response.ok) {
+        const newProduct: Product = await response.json();
+        onProductCreated?.(newProduct);
+        onClose();
+      } else {
+        console.error("Erro ao criar produto:", response.statusText);
       }
-      const newProduct = (await response.json()) as Product;
-      onProductCreated?.(newProduct);
-      onClose();
     } catch (error) {
       console.error("Erro ao criar produto:", error);
     }
