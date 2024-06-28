@@ -32,11 +32,11 @@ export const StepCreateProduct = ({
     if (mainImage) {
       formData.append("mainImage", mainImage);
     }
-    formData.append("title", infoProducts.title);
-    formData.append("slug", infoProducts.slug);
+    formData.append("title", infoProducts.title || "");
+    formData.append("slug", infoProducts.slug || "");
     formData.append("price", infoProducts.price.toString());
-    formData.append("description", infoProducts.description);
-    formData.append("moreDetails", infoProducts.moreDetails);
+    formData.append("description", infoProducts.description || "");
+    formData.append("moreDetails", infoProducts.moreDetails || "");
     formData.append("category", infoProducts.category || "");
     formData.append("featured", infoProducts.featured ? "1" : "0");
 
@@ -50,8 +50,17 @@ export const StepCreateProduct = ({
 
       if (response.ok) {
         const newProduct: Product = await response.json();
-        onProductCreated?.(newProduct);
-        onClose();
+        if (
+          newProduct &&
+          newProduct.id &&
+          newProduct.title &&
+          newProduct.price
+        ) {
+          onProductCreated?.(newProduct);
+          onClose();
+        } else {
+          console.error("Produto criado com dados incompletos:", newProduct);
+        }
       } else {
         console.error("Erro ao criar produto:", response.statusText);
       }

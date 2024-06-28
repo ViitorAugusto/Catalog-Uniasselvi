@@ -1,7 +1,5 @@
-
 import { Product } from "@/types/product";
 import { api } from "./api-client";
-
 
 interface ProductListResponse {
   id: number;
@@ -17,6 +15,10 @@ interface ProductListResponse {
 }
 
 export async function getProducts(): Promise<ProductListResponse[]> {
-  const result = await api.get("products").json<ProductListResponse[]>();
-  return  result;
+  const result = await api
+    .get("products")
+    .json<{ data: ProductListResponse[] }>();
+  const products = result.data;
+  console.log("Produtos:", products);
+  return products;
 }

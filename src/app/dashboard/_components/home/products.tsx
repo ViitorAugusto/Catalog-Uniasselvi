@@ -16,8 +16,14 @@ import { ProductsTableSkeleton } from "../products-table-skeleton";
 import DeleteDialog from "../delete-dialog";
 import { Button } from "@/components/ui/button";
 import { ProductsDialog } from "@/components/products/products-dialog";
+import { PaginationPage } from "../pagination";
+import { SearchInput } from "../search-input";
 
-export default function Dashboard() {
+export default function Dashboard({
+  searchParams,
+}: {
+  searchParams?: { search?: string };
+}) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
@@ -29,11 +35,16 @@ export default function Dashboard() {
   }, []);
 
   const fetchProducts = () => {
+    setLoading(true);
     api
-      .get("products")
-      .json<Product[]>()
+      .get("products?page=1", {
+        searchParams: searchParams?.search,
+      })
+      .json<{ data: Product[] }>()
       .then(data => {
-        setProducts(data);
+        const products = data.data;
+        console.log("Resposta da requisição:", products);
+        setProducts(products);
         setLoading(false);
       })
       .catch(error => {
@@ -73,16 +84,15 @@ export default function Dashboard() {
   };
 
   const handleProductCreated = (newProduct: Product) => {
-    if (newProduct && newProduct.id) {
-      setProducts(prevProducts => [...prevProducts, newProduct]);
-    }
+    fetchProducts();
     handleCloseProductsDialog();
   };
 
   return (
     <>
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-        <div className="self-end">
+        <div className=" flex gap-10">
+          <SearchInput />
           <Button onClick={handleOpenProductsDialog}>Criar Produto</Button>
         </div>
         <div className="border shadow-sm rounded-lg p-2">
@@ -94,7 +104,7 @@ export default function Dashboard() {
                 <TableHead className="hidden md:table-cell">
                   Descrição
                 </TableHead>
-                <TableHead className="hidden md:table-cell">Preço</TableHead>
+                <TableHead className="md:table-cell">Preço</TableHead>
                 <TableHead className="text-right">Ações</TableHead>
               </TableRow>
             </TableHeader>
@@ -123,6 +133,7 @@ export default function Dashboard() {
             </TableBody>
           </Table>
         </div>
+        <PaginationPage />
       </main>
       <DeleteDialog
         isOpen={isDeleteDialogOpen}

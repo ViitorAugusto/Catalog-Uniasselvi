@@ -15,7 +15,7 @@ interface ProductsTableProps {
   title: string;
   description: string;
   price: number;
-  image?: string; // Tornar image opcional
+  image?: string;
   onDelete?: (id: number) => void;
 }
 
@@ -24,17 +24,21 @@ export const ProductsTable = ({
   title,
   description,
   price,
-  image = "", // Valor padrão vazio para image
+  image,
   onDelete,
 }: ProductsTableProps) => {
   const baseURL = "http://127.0.0.1:8000/storage/";
-  const imageUrl = image.startsWith("http") ? image : `${baseURL}${image}`;
+  const imageUrl = image
+    ? image.startsWith("http")
+      ? image
+      : `${baseURL}${image}`
+    : "";
   const formattedPrice = price / 100;
 
   return (
     <TableRow>
       <TableCell>
-        {image ? (
+        {imageUrl ? (
           <Image
             alt={`Image of ${title}`}
             className="aspect-square rounded-md object-cover size-20"

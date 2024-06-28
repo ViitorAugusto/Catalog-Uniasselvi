@@ -6,6 +6,8 @@ import { getProducts } from "@/http/get-products";
 
 const Catalog = async () => {
   const products = await getProducts();
+  
+  console.log("Produtos:", products);
   return (
     <>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 py-28 min-h-screen ">
