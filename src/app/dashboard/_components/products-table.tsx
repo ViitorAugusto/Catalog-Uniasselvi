@@ -9,6 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { BiSolidEdit } from "react-icons/bi";
 
 interface ProductsTableProps {
   id: number;
@@ -72,6 +73,10 @@ export const ProductsTable = ({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
+            <DropdownMenuItem>
+              <BiSolidEdit className="mr-2 h-4 w-4" />
+              Editar
+            </DropdownMenuItem>
             <DropdownMenuItem onSelect={() => onDelete && onDelete(id)}>
               <FaRegTrashAlt className="mr-2 h-4 w-4" />
               Deletar

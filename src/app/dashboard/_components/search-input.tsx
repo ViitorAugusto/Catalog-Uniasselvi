@@ -1,21 +1,25 @@
-'use client';
+"use client";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export const SearchInput = () => {
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const {replace} = useRouter();
-    
-  const handleChage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const params = new URLSearchParams
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const params = new URLSearchParams(searchParams.toString());
     const searchString = event.currentTarget.value;
-    if(searchString){
-        params.set('search', searchString);
+
+    if (searchString) {
+      params.set("search", searchString);
+      params.set("page", "1");
     } else {
-        params.delete('search');
+      params.delete("search");
+      params.delete("page");
     }
+
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -27,7 +31,7 @@ export const SearchInput = () => {
           type="search"
           placeholder="Search orders..."
           className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px] "
-          onChange={handleChage}
+          onChange={handleChange}
         />
       </div>
     </form>

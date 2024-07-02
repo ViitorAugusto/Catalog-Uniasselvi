@@ -18,33 +18,57 @@ import { Button } from "@/components/ui/button";
 import { ProductsDialog } from "@/components/products/products-dialog";
 import { PaginationPage } from "../pagination";
 import { SearchInput } from "../search-input";
+import { useSearchParams, useRouter } from "next/navigation";
 
-export default function Dashboard({
-  searchParams,
-}: {
-  searchParams?: { search?: string };
-}) {
+interface Links {
+  url: string;
+  label: string;
+  active: boolean;
+}
+type ComponentProps = {
+  params?: {
+    search?: string;
+    page?: number;
+  };
+};
+
+export default function Dashboard({ params }: ComponentProps) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [isProductsDialogOpen, setIsProductsDialogOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState<number | null>(null);
+  const [paginationLinks, setPaginationLinks] = useState<Links[]>([]);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search") || "";
+  const [currentPage, setCurrentPage] = useState(params?.page || 1);
+  const { replace } = useRouter();
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [search, currentPage]);
+
+  useEffect(() => {
+    if (search) {
+      setCurrentPage(1);
+      replace(`${window.location.pathname}?search=${search}&page=1`);
+    }
+  }, [search]);
 
   const fetchProducts = () => {
     setLoading(true);
     api
-      .get("products?page=1", {
-        searchParams: searchParams?.search,
+      .get(`products`, {
+        searchParams: {
+          search: search,
+          page: currentPage,
+        },
       })
-      .json<{ data: Product[] }>()
-      .then(data => {
-        const products = data.data;
-        console.log("Resposta da requisição:", products);
+      .json<{ data: Product[]; links: Links[] }>()
+      .then(response => {
+        const { data: products, links } = response;
         setProducts(products);
+        setPaginationLinks(links);
         setLoading(false);
       })
       .catch(error => {
@@ -88,11 +112,15 @@ export default function Dashboard({
     handleCloseProductsDialog();
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    replace(`${window.location.pathname}?search=${search}&page=${page}`);
+  };
+
   return (
     <>
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-        <div className=" flex gap-10">
-          <SearchInput />
+        <div className="flex gap-10 self-end">
           <Button onClick={handleOpenProductsDialog}>Criar Produto</Button>
         </div>
         <div className="border shadow-sm rounded-lg p-2">
@@ -133,7 +161,10 @@ export default function Dashboard({
             </TableBody>
           </Table>
         </div>
-        <PaginationPage />
+        <PaginationPage
+          links={paginationLinks}
+          onPageChange={handlePageChange}
+        />
       </main>
       <DeleteDialog
         isOpen={isDeleteDialogOpen}

@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -12,8 +11,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { SearchInput } from "./search-input";
 
-
-export default function HomeDashboard({ children} : Readonly<{children: React.ReactNode}>) {
+export default function HomeDashboard({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 lg:block">
@@ -87,7 +87,7 @@ export default function HomeDashboard({ children} : Readonly<{children: React.Re
             <h1 className="font-semibold text-lg">Recent Orders</h1>
           </div>
           <div className="flex flex-1 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-           <SearchInput />
+            <SearchInput />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="rounded-full">
